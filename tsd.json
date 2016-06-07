@@ -64,6 +64,9 @@
     },
     "uglify-js/uglify-js.d.ts": {
       "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+    },
+    "vinyl-buffer/vinyl-buffer.d.ts": {
+      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
     }
   }
 }

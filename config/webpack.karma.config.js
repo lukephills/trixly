@@ -1,4 +1,5 @@
 const path = require('path');
+const helpers = require('./config');
 
 /**
  * Webpack Plugins
@@ -35,11 +36,11 @@ module.exports = {
          *
          * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
          */
-        extensions: ['.ts', '.js', '.tsx', '.jsx', ''],
+        extensions: ['', '.ts', '.js', '.tsx', '.jsx'],
         /**
          * Make sure root is src
          */
-        root: path.resolve(__dirname, 'src')
+        root: helpers.root('src'),
     },
     /**
      * Options affecting the normal modules.
@@ -61,7 +62,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loader: 'tslint-loader',
-                exclude: [path.resolve(__dirname, 'node_modules')]
+                exclude: [helpers.root('node_modules')]
             },
             /**
              * Source map loader support for *.js files
@@ -74,8 +75,8 @@ module.exports = {
                 loader: 'source-map-loader',
                 exclude: [
                     // these packages have problems with their sourcemaps
-	                path.resolve(__dirname, 'node_modules/rxjs'),
-	                path.resolve(__dirname, 'node_modules/@angular')
+	                 helpers.root('node_modules/rxjs'),
+                     helpers.root('node_modules/@angular')
                 ] }
         ],
         /**
@@ -117,7 +118,7 @@ module.exports = {
              */
             {
                 test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
-                include: path.resolve(__dirname, 'src'),
+                include: helpers.root('src'),
                 exclude: [
                     /\.(e2e|spec)\.ts$/,
                     /node_modules/

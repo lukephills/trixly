@@ -1,7 +1,7 @@
 
 import foo from './foo';
 
-const F = 123;
+const F: number = 123;
 
 export default {
 

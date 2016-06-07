@@ -43,12 +43,6 @@ module.exports = function (config) {
         }
     };
 
-	if (process.env.APPVEYOR) {
-		configuration.browsers = ['IE'];
-		configuration.singleRun = true;
-		configuration.browserNoActivityTimeout = 90000; // Note: default value (10000) is not enough
-	}
-
 	if (process.env.TRAVIS || process.env.CIRCLECI) {
 		configuration.browsers = ['Chrome_travis_ci'];
 		configuration.singleRun = true;
