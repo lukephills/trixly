@@ -60,7 +60,6 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.6",
     "gulp-tslint-stylish": "^1.1.1",
-    "is-ci": "^1.0.8",
     "run-sequence": "^1.2.1",
     "semver": "^5.1.0",
     "expect": "1.20.1",
@@ -90,6 +89,8 @@
     "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "^0.14.0"
 
+  },
+  "engines": {
+    "node": ">= 5.4.1 < 7"
   }
-
 }
