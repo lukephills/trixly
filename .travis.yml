@@ -1,45 +1,61 @@
+# whitelisted branches
+branches:
+  only:
+    - master
+    - dev
+
 language: node_js
+sudo: required
+dist: trusty
 node_js:
-  - 4
-  - 5
-  - stable
+  - '4'
+  - '5'
+  - 'stable'
 
-sudo: false
-
-os:
-  - linux
-  - osx
-
-matrix:
-  exclude:
-    - os: osx
-      node_js: 4
-    - os: osx
-      node_js: 5
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated xctool || brew upgrade xctool; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew tap caskroom/cask; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CHROME_BIN=chromium-browser; fi  # Karma CI
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install google-chrome; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
-
-before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then nohup bash -c "webdriver-manager start 2>&1 &"; fi  # Protractor CI
-
-#after_failure:
- #
+cache:
+  directories:
+    - node_modules
 
 branches:
-  only: master
+  except:
+   - /^v\d+\.\d+\.\d+$/
+
+# node 4 likes the G++ v4.8 compiler
+# see https://docs.travis-ci.com/user/languages/javascript-with-nodejs#Node.js-v4-(or-io.js-v3)-compiler-requirements
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - google-chrome
+    packages:
+      - g++-4.8
+      - google-chrome-stable
+
+before_install:
+# Used by karma and karma-chrome-launcher
+- "export CHROME_BIN=/usr/bin/google-chrome"
+# used by xvfb that is used by Chrome
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+
+install:
+  # Check the size of caches
+  - du -sh ./node_modules || true
+  # Install version of npm that we are locked against
+  - npm install -g npm@3
+  # add node.js module for TypeScript type definition
+  - npm install tsd@next -g
+  # - npm config set registry http://23.251.144.68
+  # Disable the spinner, it looks bad on Travis
+  - npm config set spin false
+#  - sudo apt-get update -qq
+  # Log HTTP requests
+  - npm config set loglevel http
+  # Install npm dependencies and ensure that npm cache is not stale
+  - npm install
 
 notifications:
   email: true
-  
-cache:
-  directories: node_modules
 
 script:
   - npm run test
