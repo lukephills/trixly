@@ -13,7 +13,6 @@ module.exports = function (config) {
         preprocessors: {
             './test/browser-tests/*.ts': ['coverage', 'webpack', 'sourcemap']
         },
-        // Webpack Config at ./webpack.test.ts
         webpack: webpack_karma_config,
         coverageReporter: {
             dir: 'coverage/',
@@ -39,7 +38,6 @@ module.exports = function (config) {
 		    }
 	    },
 	    singleRun: true,
-        plugins: ['karma-*'],
         client: {
             mocha: { ui: 'bdd' }
         }
