@@ -4,7 +4,7 @@
   "description": "TypeScript starter kit",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
