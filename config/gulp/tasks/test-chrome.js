@@ -1,9 +1,4 @@
 const gulp = require('gulp');
 const runKarma  = require('../util/runKarma');
-console.log(runKarma)
 
-gulp.task('test:chrome', runKarma(true, {
-		singleRun: true,
-		browsers: ['Chrome']
-	}
-));
+gulp.task('test:chrome', runKarma('Chrome', true));

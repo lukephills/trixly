@@ -1,34 +1,21 @@
 const karma = require('karma');
 const path = require('path');
 
-function runKarma(failOnError = false, karmaOptions) {
-
-	karmaOptions = karmaOptions || {}
-
+function runKarma(browser, singlerun) {
 	return function(done) {
+
 		process.env.NODE_ENV = 'test';
-		new karma.Server(Object.assign({
-				configFile: path.resolve('config/karma.conf.js')
-			}, karmaOptions),
+		new karma.Server({
+				configFile: path.resolve('config/karma.conf.js'),
+				singleRun: singlerun,
+				browserNoActivityTimeout: 240000,
+				captureTimeout: 120000,
+				browsers: [browser]
+			},
 			function(err) {
-				if ( err) {
-					if (failOnError) {
-						const error = new Error('Browser test failed!');
-						error.showStack = false;
-						done(error);
-						process.exit(1);
-					} else {
-						done();
-						process.exit(err ? 1 : 0);
-					}
-
-				} else {
-					done();
-
-					process.exit(0);
-				}
-			})
-			.start();
+				done();
+				process.exit(err ? 1 : 0);
+			}).start();
 	}
 }
 
