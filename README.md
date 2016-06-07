@@ -1,2 +1,2 @@
 # trixly
-TypeScript starter kit
+| TypeScript starter kit
