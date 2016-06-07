@@ -1,6 +1,4 @@
-import Trixly from '../../src/index';
-
-console.log(Trixly)
+const Trixly = require('../../src/index');
 
 describe('Trixly', () => {
 
@@ -9,7 +7,7 @@ describe('Trixly', () => {
     });
 
     it('should be an object', () => {
-        expect(Trixly).to.be.a.function;
+        expect(Trixly).to.be.a.object;
     });
 
 });
