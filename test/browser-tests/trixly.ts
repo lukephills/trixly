@@ -1,3 +1,5 @@
+import Trixly from '../../src';
+
 describe('Trixly', () => {
 
     it('should run a simple TypeScript test', () => {

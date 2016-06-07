@@ -1,12 +1,17 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import eslint from 'gulp-eslint';
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const tslint = require('gulp-tslint');
+const stylish = require('gulp-tslint-stylish');
 
 function lint(files) {
 	return gulp.src(files)
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError())
+		.pipe(tslint())
+		.pipe(tslint.report(stylish, {
+			emitError: false,
+			sort: true,
+			bell: true,
+			fullPath: true
+		}));
 }
 
-export default lint;
+module.exports = lint;
