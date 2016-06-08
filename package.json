@@ -90,6 +90,7 @@
     "karma-chai": "0.1.0",
     "karma-sinon": "1.0.5",
     "semver": "^5.1.0",
+    "coveralls": "^2.11.9",
     "phantomjs-prebuilt": "^2.1.7",
     "remap-istanbul": "^0.6.4",
     "rimraf": "^2.5.2",
