@@ -1,12 +1,17 @@
+/*!
+ * trixly v0.0.5
+ * (c) 2016 KFlash
+ * Released under the MIT License.
+ */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["MyTsLibrary"] = factory();
+		exports["Trixly"] = factory();
 	else
-		root["MyTsLibrary"] = factory();
+		root["Trixly"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

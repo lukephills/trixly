@@ -1,8 +1,4 @@
-const webpack = require('webpack');
-const path = require('path');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-const ROOT = path.join(__dirname, '/../../');
-
+const ROOT = require('../root');
 
 /**
  * Webpack Plugins
@@ -20,7 +16,7 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = {
 
-	entry: path.join(ROOT, 'src'),
+	entry: ROOT('src'),
 
 	/**
 	 * Switch loaders to debug mode.
@@ -43,14 +39,14 @@ module.exports = {
 	 * See: http://webpack.github.io/docs/configuration.html#output
 	 */
 	output: {
-		library: 'MyTsLibrary',
+		library: 'Trixly',
 
 		/**
 		 * The output directory as absolute path (required).
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-path
 		 */
-		path: path.join(ROOT, 'dist'),
+		path: ROOT('dist'),
 
 		/**
 		 * Specifies the name of each output file on disk.
@@ -75,13 +71,13 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.tsx', '.ts', '.js', '.less', '.css'],
+		extensions: ['', '.tsx', '.ts', '.js', '.less', '.json', '.css', '.html'],
 
 		// remove other default values
 		modulesDirectories: ['node_modules'],
 
 		// Make sure root is src
-		root: path.join(ROOT, 'src')
+		root: ROOT('src')
 	},
 
 	module: {
@@ -96,7 +92,7 @@ module.exports = {
 			 *
 			 * See: https://github.com/wbuchwalter/tslint-loader
 			 */
-			{ test: /\.ts$/, loader: 'tslint-loader', exclude: [ path.join(ROOT, 'node_modules') ] },
+			{ test: /\.ts$/, loader: 'tslint-loader', exclude: [ ROOT('node_modules') ] },
 
 
 			/*
@@ -110,8 +106,8 @@ module.exports = {
 				loader: 'source-map-loader',
 				exclude: [
 					// these packages have problems with their sourcemaps
-					path.join(ROOT, 'ode_modules/rxjs'),
-					path.join(ROOT, 'node_modules/@angular')
+					ROOT('node_modules/rxjs'),
+					ROOT('node_modules/@angular')
 				]
 			}
 

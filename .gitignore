@@ -1,29 +1,40 @@
------------------------
 # Mac artifacts
------------------------
 .DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
 
------------------------
 # Editor artifacts
------------------------
 .idea/
 .*.swp
 .*.un~
 *.iml
 
------------------------
+# Users Environment Variables
+.lock-wscript
+
+# Node Files
+node_modules
+bower_components
+
 # NPM artifacts
------------------------
-node_modules/
 npm-*
 
------------------------
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Typing TSD
+typings/tsd/**
+
+# Coverage directory used by tools like istanbul
+coverage
+
 # Generated files
------------------------
 coverage
 tmp
 
------------------------
+
 # Misc files
------------------------
 *.log

@@ -1,11 +1,22 @@
 const webpack = require('webpack');
 const path = require('path');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-const ROOT = path.join(__dirname, '/../../');
+const banner = require('../banner');
+const ROOT = require('../root');
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+
+/**
+ * Webpack Plugins
+ */
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 
 module.exports = {
 
-	entry: path.join(ROOT, 'src'),
+	entry: ROOT('src'),
 	cache: true,
 	/**
 	 * Switch loaders to debug mode.
@@ -28,14 +39,14 @@ module.exports = {
 	 * See: http://webpack.github.io/docs/configuration.html#output
 	 */
 	output: {
-		library: 'MyTsLibrary',
+		library: 'Trixly',
 
 		/**
 		 * The output directory as absolute path (required).
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-path
 		 */
-		path: path.join(ROOT, 'dist'),
+		path: ROOT('dist'),
 
 		/**
 		 * Specifies the name of each output file on disk.
@@ -60,13 +71,13 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.tsx', '.ts', '.js', '.less', '.css'],
+		extensions: ['', '.tsx', '.ts', '.js', '.less', '.json', '.css', '.html'],
 
 		// remove other default values
 		modulesDirectories: ['node_modules'],
 
 		// Make sure root is src
-		root: path.join(ROOT, 'src')
+		root: ROOT('src')
 	},
 
 	module: {
@@ -81,7 +92,7 @@ module.exports = {
 			 *
 			 * See: https://github.com/wbuchwalter/tslint-loader
 			 */
-			{ test: /\.ts$/, loader: 'tslint-loader', exclude: [ path.join(ROOT, 'node_modules') ] },
+			{ test: /\.ts$/, loader: 'tslint-loader', exclude: [ ROOT('node_modules') ] },
 
 
 			/*
@@ -95,8 +106,8 @@ module.exports = {
 				loader: 'source-map-loader',
 				exclude: [
 					// these packages have problems with their sourcemaps
-					path.join(ROOT, 'ode_modules/rxjs'),
-					path.join(ROOT, 'node_modules/@angular')
+					ROOT('node_modules/rxjs'),
+					ROOT('node_modules/@angular')
 				]
 			}
 		],
@@ -125,7 +136,21 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
-			}
+			},
+
+			/*
+			 * Support for CSS (with hot module replacement)
+			 *
+			 * See: https://github.com/webpack/json-loader
+			 */
+			{
+				test: /\.css$/,
+				loader: 'style-loader!css-loader'
+			},
+			,
+
+			// support for .html as raw text
+			{ test: /\.html$/,  loader: 'raw' }
 		]
 	},
 
@@ -150,6 +175,10 @@ module.exports = {
 		 */
 		new ForkCheckerPlugin(),
 
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+		}),
+
 		/*
 		 * Plugin: OccurenceOrderPlugin
 		 * Description: Varies the distribution of the ids to get the smallest id length
@@ -159,6 +188,8 @@ module.exports = {
 		 * See: https://github.com/webpack/docs/wiki/optimization#minimize
 		 */
 		new webpack.optimize.OccurenceOrderPlugin(true),
+		new webpack.optimize.DedupePlugin(),
+		new webpack.BannerPlugin(banner(), {raw: true})
 	],
 
 	/*

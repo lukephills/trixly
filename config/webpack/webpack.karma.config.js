@@ -1,6 +1,5 @@
 const path = require('path');
-const ROOT = path.join(__dirname, '/../../');
-
+const ROOT = require('../root');
 
 /**
  * Webpack Plugins
@@ -37,11 +36,11 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.ts', '.js', '.tsx', '.jsx'],
+		extensions: ['', '.tsx', '.ts', '.js', '.less', '.json', '.css', '.html'],
 		/**
 		 * Make sure root is src
 		 */
-		root: path.join(ROOT, 'src')
+		root: ROOT('src')
 	},
 	/**
 	 * Options affecting the normal modules.
@@ -63,7 +62,7 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				loader: 'tslint-loader',
-				exclude: [path.join(ROOT, 'node_modules')]
+				exclude: [ROOT('node_modules')]
 			},
 		/**
 		 * Source map loader support for *.js files
@@ -76,8 +75,8 @@ module.exports = {
 				loader: 'source-map-loader',
 				exclude: [
 					// these packages have problems with their sourcemaps
-					path.join(ROOT, 'node_modules/rxjs'),
-					path.join(ROOT, 'node_modules/@angular')
+					ROOT('node_modules/rxjs'),
+					ROOT('node_modules/@angular')
 				] }
 		],
 		/**
@@ -115,11 +114,11 @@ module.exports = {
 		 * Instruments JS files with Istanbul for subsequent code coverage reporting.
 		 * Instrument only testing sources.
 		 *
-		 * See: https://github.com/deepsweet/istanbul-instrumenter-loader
+		 * See:  https://github.com/deepsweet/istanbul-instrumenter-loader
 		 */
 			{
 				test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
-				include: path.join(ROOT, 'src'),
+				include: ROOT('src'),
 				exclude: [
 					/\.(e2e|spec)\.ts$/,
 					/node_modules/
