@@ -4,11 +4,20 @@
   "description": "TypeScript starter kit",
   "main": "index.js",
   "scripts": {
-    "build:dev": "gulp build:dev --color",
-    "build:prod": "gulp build:prod --color",
-    "test": "gulp test --color",
+    "clean": "rimraf coverage/ dist/",
+    "build": "npm run build:dev && npm run build:prod",
+    "build:dev": "cross-env NODE_ENV=development",
+    "build:prod": "cross-env NODE_ENV=production",
+    "test": "npm run test:browser",
+    "test:browser": "cross-env NODE_ENV=test karma start config/karma.conf.js --no-auto-watch",
+    "test:phantom": "cross-env NODE_ENV=test karma start config/karma.conf.js --single-run --no-auto-watch --browsers=PhantomJS",
+    "test:chrome": "cross-env NODE_ENV=test karma start config/karma.conf.js --single-run --no-auto-watch --browsers=Chrome",
+    "lint": "npm run lint:src && npm run lint:tests",
+    "lint:tests": "tslint test/**/*.ts",
+    "lint:src": "tslint src/**/*.ts",
     "postinstall": "typings install",
-    "node:cov": "remap-istanbul -b src/ -i coverage/coverage-final.json -o coverage -t html && npm run gulp -- node:cov --color"
+    "dependencies:check": "ncu",
+    "dependencies:upgrade": "ncu -u"
   
   },
   "repository": {
@@ -45,21 +54,6 @@
     "karma-mocha": "1.0.1",
     "karma-chai": "0.1.0",
     "karma-sinon": "1.0.5",
-    "gulp": "^3.9.1",
-    "gulp-cached": "^1.1.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-inject": "^4.0.0",
-    "gulp-plumber": "~1.1.0",
-    "gulp-replace": "^0.5.4",
-    "gulp-shell": "~0.5.2",
-    "gulp-sourcemaps": "2.0.0-alpha",
-    "gulp-tslint": "^5.0.0",
-    "gulp-typescript": "~2.13.6",
-    "gulp-uglify": "^1.5.3",
-    "gulp-util": "^3.0.7",
-    "gulp-watch": "^4.3.6",
-    "gulp-tslint-stylish": "^1.1.1",
     "run-sequence": "^1.2.1",
     "semver": "^5.1.0",
     "expect": "1.20.1",
@@ -77,8 +71,6 @@
     "tslint": "^3.10.0-dev.3",
     "ts-node": "^0.8.0",
     "typedoc": "^0.4.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
     "walk": "^2.3.9",
     "yargs": "^4.7.1",
     "awesome-typescript-loader": "~0.19.1",
@@ -87,8 +79,9 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "^0.14.0"
-
+    "webpack-merge": "^0.14.0",
+    "npm-check-updates": "^2.6.1",
+    "cross-env": "1.0.8"
   },
   "engines": {
     "node": ">= 5.4.1 < 7"
