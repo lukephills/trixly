@@ -1,4 +1,14 @@
-/* eslint no-var: 0, vars-on-top: 0 */
-require('babel/register');
-var config = require('./webpack/webpack.config');
-module.exports = config;
+switch (process.env.NODE_ENV) {
+  case 'prod':
+  case 'production':
+    module.exports = require('./config/webpack/webpack.prod.config');
+    break;
+  case 'test':
+  case 'testing':
+    module.exports = require('./config/webpack/webpack.karma.config');
+    break;
+  case 'dev':
+  case 'development':
+  default:
+    module.exports = require('./config/webpack/webpack.dev.config');
+}
