@@ -1,5 +1,5 @@
 const path = require('path');
-const helpers = require('./config');
+const ROOT = path.join(__dirname, '/../../');
 
 
 /**
@@ -41,7 +41,7 @@ module.exports = {
 		/**
 		 * Make sure root is src
 		 */
-		root: helpers.root('src'),
+		root: path.join(ROOT, 'src')
 	},
 	/**
 	 * Options affecting the normal modules.
@@ -63,7 +63,7 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				loader: 'tslint-loader',
-				exclude: [helpers.root('node_modules')]
+				exclude: [path.join(ROOT, 'node_modules')]
 			},
 		/**
 		 * Source map loader support for *.js files
@@ -76,8 +76,8 @@ module.exports = {
 				loader: 'source-map-loader',
 				exclude: [
 					// these packages have problems with their sourcemaps
-					helpers.root('node_modules/rxjs'),
-					helpers.root('node_modules/@angular')
+					path.join(ROOT, 'node_modules/rxjs'),
+					path.join(ROOT, 'node_modules/@angular')
 				] }
 		],
 		/**
@@ -90,9 +90,14 @@ module.exports = {
 		 */
 		loaders: [
 		/**
-		 * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+		 * Typescript loader support for .ts  and .tsx files
+		 *
+		 * Typescript only provides the type checking, but the transpilation from ES6 to ES5 is
+		 * carried over by Babel, which is more webpack-friendly. This also allows to have some
+		 * parts of the application written in js or jsx and have only babel run on them.
 		 *
 		 * See: https://github.com/s-panferov/awesome-typescript-loader
+		 * See: https://github.com/babel/babel-loader
 		 */
 			{
 				test: /\.ts(x?)$/,
@@ -114,7 +119,7 @@ module.exports = {
 		 */
 			{
 				test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
-				include: helpers.root('src'),
+				include: path.join(ROOT, 'src'),
 				exclude: [
 					/\.(e2e|spec)\.ts$/,
 					/node_modules/
@@ -133,11 +138,8 @@ module.exports = {
 	 * Description: Define free variables.
 	 * Useful for having development builds with debug logging or adding global constants.
 	 *
-	 * Environment helpers
-	 *
 	 * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
 	 */
-		// NOTE: when adding more properties make sure you include them in custom-typings.d.ts
 		new DefinePlugin({
 			'ENV': JSON.stringify(ENV),
 			'HMR': false,
@@ -149,160 +151,13 @@ module.exports = {
 		})
 	],
 	/**
-	 * Static analysis linter for TypeScript advanced options configuration
-	 * Description: An extensible linter for the TypeScript language.
+	 * TSLint decreases bikeshedding and increases maintainability with
+	 * advanced option configuration.
 	 *
 	 * See: https://github.com/wbuchwalter/tslint-loader
 	 */
 	tslint: {
-		configuration: {
-			rules: {
-				"align": false,
-				"ban": false,
-				"class-name": true,
-				"comment-format": [
-					true,
-					"check-space"
-				],
-				"curly": true,
-				"eofline": false,
-				"forin": true,
-				"indent": [true,
-					"spaces"
-				],
-				"jsdoc-format": true,
-				"label-position": true,
-				"label-undefined": true,
-				"max-line-length": [
-					true,
-					140
-				],
-				"member-access": true,
-				"member-ordering": [
-					true,
-					"public-before-private",
-					"static-before-instance",
-					"variables-before-functions"
-				],
-				"new-parens": true,
-				"no-angle-bracket-type-assertion": true,
-				"no-any": false,
-				"no-arg": true,
-				"no-bitwise": true,
-				"no-conditional-assignment": true,
-				"no-consecutive-blank-lines": false,
-				"no-console": [
-					true,
-					"debug",
-					"info",
-					"time",
-					"timeEnd",
-					"trace"
-				],
-				"no-construct": true,
-				"no-constructor-vars": true,
-				"no-debugger": true,
-				"no-duplicate-key": true,
-				"no-duplicate-variable": true,
-				"no-empty": true,
-				"no-eval": true,
-				"no-inferrable-types": false,
-				"no-internal-module": true,
-				"no-invalid-this": [
-					true,
-					"check-function-in-method"
-				],
-				"no-null-keyword": false,
-				"no-reference": true,
-				"no-require-imports": true,
-				"no-shadowed-variable": true,
-				"no-string-literal": true,
-				"no-switch-case-fall-through": false,
-				"no-trailing-whitespace": true,
-				"no-unreachable": true,
-				"no-unused-expression": true,
-				"no-unused-variable": true,
-				"no-use-before-declare": true,
-				"no-var-keyword": true,
-				"no-var-requires": true,
-				"object-literal-sort-keys": true,
-				"one-line": [
-					true,
-					"check-open-brace",
-					"check-catch",
-					"check-else",
-					"check-finally",
-					"check-whitespace"
-				],
-				"one-variable-per-declaration": [true,
-					"ignore-for-loop"
-				],
-				"quotemark": [
-					true,
-					"single",
-					"avoid-escape"
-				],
-				"radix": true,
-				"semicolon": [true, "always"],
-				"switch-default": true,
-				"trailing-comma": [
-					true,
-					{
-						"multiline": "never",
-						"singleline": "never"
-					}
-				],
-				"triple-equals": [
-					true,
-					"allow-null-check"
-				],
-				"typedef": [
-					true,
-					"call-signature",
-					"parameter",
-					"arrow-parameter",
-					"property-declaration",
-					"variable-declaration",
-					"member-variable-declaration"
-				],
-				"typedef-whitespace": [
-					true,
-					{
-						"call-signature": "nospace",
-						"index-signature": "nospace",
-						"parameter": "nospace",
-						"property-declaration": "nospace",
-						"variable-declaration": "nospace"
-					},
-					{
-						"call-signature": "space",
-						"index-signature": "space",
-						"parameter": "space",
-						"property-declaration": "space",
-						"variable-declaration": "space"
-					}
-				],
-				"use-isnan": true,
-				"use-strict": [
-					true,
-					"check-module"
-				],
-				"variable-name": [
-					true,
-					"check-format",
-					"allow-leading-underscore",
-					"ban-keywords"
-				],
-				"whitespace": [
-					true,
-					"check-branch",
-					"check-decl",
-					"check-operator",
-					"check-separator",
-					"check-type"
-				]
-			}
-		},
+		// Rules are in tslint.json
 		emitErrors: false,
 		failOnHint: false,
 		resourcePath: 'src'

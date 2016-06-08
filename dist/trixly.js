@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["MyTsLibrary"] = factory();
+	else
+		root["MyTsLibrary"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -42,30 +52,16 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const foo_1 = __webpack_require__(1);
-	const F = 123;
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = {
-	    F,
-	    foo: foo_1.default
-	};
-	
-
-/***/ },
-/* 1 */
 /***/ function(module, exports) {
 
 	"use strict";
+
 	const F = 123;
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = {
-	    F
-	};
-	
+		exports.default = {};
 
 /***/ }
-/******/ ]);
-//# sourceMappingURL=trixly.map
+/******/ ])
+});
+;
+//# sourceMappingURL=main.map

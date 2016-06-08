@@ -1,6 +1,6 @@
 'use strict';
 
-const webpack_karma_config = require('./webpack.karma.config');
+const webpack_karma_config = require('./webpack/webpack.karma.config');
 
 module.exports = function (config) {
 
