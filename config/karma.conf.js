@@ -2,6 +2,14 @@
 
 const webpack_karma_config = require('./webpack/webpack.karma.config');
 
+const isCI = process.env.CONTINUOUS_INTEGRATION === 'true';
+const runCoverage = process.env.COVERAGE === 'true' || isCI;
+const devBrowser = process.env.PHANTOM ? 'PhantomJS' : 'Chrome';
+
+const preprocessors = ['webpack', 'sourcemap'];
+const reporters = ['mocha'];
+
+
 module.exports = function (config) {
 
     const configuration = {
@@ -11,15 +19,13 @@ module.exports = function (config) {
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha', 'chai'],
         // list of files / patterns to load in the browser
-        files: [
-             { pattern: './test/browser-tests/**/*.ts', watched: false }
-        ],
+        files: [ { pattern: './config/bundle.js', watched: false } ],
         // list of files to exclude
         exclude: [],
          // preprocess matching files before serving them to the browser
          // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './test/browser-tests/*.ts': ['coverage', 'webpack', 'sourcemap']
+            './config/bundle.js': ['coverage', 'webpack', 'sourcemap']
         },
         webpack: webpack_karma_config,
         coverageReporter: {
@@ -37,6 +43,7 @@ module.exports = function (config) {
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['mocha', 'coverage'],
+        mochaReporter: { output: 'autowatch' },
         // web server port
         port: 9876,
         // enable / disable colors in the output (reporters and logs)

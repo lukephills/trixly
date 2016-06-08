@@ -25,6 +25,16 @@ module.exports = {
 	 * See: https://github.com/webpack/karma-webpack#source-maps
 	 */
 	devtool: 'inline-source-map',
+
+/**
+	 * Options affecting the output of the compilation.
+	 *
+	 * See: http://webpack.github.io/docs/configuration.html#output
+	 */
+	output: {
+		pathinfo: true
+	},
+
 	/**
 	 * Options affecting the resolving of modules.
 	 *
