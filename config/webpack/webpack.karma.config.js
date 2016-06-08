@@ -26,7 +26,7 @@ module.exports = {
 	 */
 	devtool: 'inline-source-map',
 
-/**
+	/**
 	 * Options affecting the output of the compilation.
 	 *
 	 * See: http://webpack.github.io/docs/configuration.html#output
@@ -112,7 +112,30 @@ module.exports = {
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
 				exclude: [/\.e2e\.ts$/]
-			}
+			},
+
+		/**
+		 * Json loader support for *.json files.
+		 *
+		 * See: https://github.com/webpack/json-loader
+		 */
+			{ test: /\.json$/, loader: 'json-loader', exclude: [ROOT('src/index.html')] },
+
+		/**
+		 * Raw loader support for *.css files
+		 * Returns file content as string
+		 *
+		 * See: https://github.com/webpack/raw-loader
+		 */
+			{ test: /\.css$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
+
+		/**
+		 * Raw loader support for *.html
+		 * Returns file content as string
+		 *
+		 * See: https://github.com/webpack/raw-loader
+		 */
+			{ test: /\.html$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] }
 		],
 		/**
 		 * An array of applied pre and post loaders.

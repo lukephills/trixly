@@ -175,8 +175,14 @@ module.exports = {
 		 */
 		new ForkCheckerPlugin(),
 
-		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+		new DefinePlugin({
+			'ENV': JSON.stringify(ENV),
+			'HMR': false,
+			'process.env': {
+				'ENV': JSON.stringify(ENV),
+				'NODE_ENV': JSON.stringify(ENV),
+				'HMR': false
+			}
 		}),
 
 		/*

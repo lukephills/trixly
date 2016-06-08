@@ -154,6 +154,23 @@ module.exports = {
 	},
 
 	/**
+	 * Html loader advanced options
+	 *
+	 * See: https://github.com/webpack/html-loader#advanced-options
+	 */
+	// TODO: Need to workaround Angular 2's html syntax => #id [bind] (event) *ngFor
+	htmlLoader: {
+		minimize: true,
+		removeAttributeQuotes: false,
+		caseSensitive: true,
+		customAttrSurround: [
+			[/#/, /(?:)/],
+			[/\*/, /(?:)/],
+			[/\[?\(?/, /(?:)/]
+		],
+		customAttrAssign: [/\)?\]?=/]
+	},
+	/**
 	 * Add additional plugins to the compiler.
 	 *
 	 * See: http://webpack.github.io/docs/configuration.html#plugins
@@ -168,6 +185,23 @@ module.exports = {
 	 * See: https://github.com/webpack/docs/wiki/optimization#deduplication
 	 */
 		new DedupePlugin(),
+
+	/**
+	 * Plugin: DefinePlugin
+	 * Description: Define free variables.
+	 * Useful for having development builds with debug logging or adding global constants.
+	 *
+	 * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+	 */
+		new DefinePlugin({
+			'ENV': JSON.stringify(ENV),
+			'HMR': false,
+			'process.env': {
+				'ENV': JSON.stringify(ENV),
+				'NODE_ENV': JSON.stringify(ENV),
+				'HMR': false
+			}
+		}),
 
 	/**
 	 * Plugin: UglifyJsPlugin

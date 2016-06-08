@@ -2,7 +2,7 @@
 branches:
   only:
     - master
-    - dev
+    - next
 
 language: node_js
 sudo: required
