@@ -61,12 +61,6 @@ module.exports = function (config) {
          // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['Chrome'],
-	    customLaunchers: {
-		    Chrome_travis_ci: {
-			    base: 'Chrome',
-			    flags: ['--no-sandbox']
-		    }
-	    },
          // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
 	    singleRun: true,
@@ -76,9 +70,7 @@ module.exports = function (config) {
     };
 
 	if (process.env.TRAVIS || process.env.CIRCLECI) {
-		configuration.browsers = ['Chrome_travis_ci'];
-        configuration.reporters = ['mocha', 'coverage', 'coverage'];
-		configuration.singleRun = true;
+		configuration.reporters = ['mocha', 'coverage', 'coveralls'];
 	}
 
     config.set(configuration);
