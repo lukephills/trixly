@@ -8,9 +8,39 @@
 
 > Universal TypeScript starter kit for Angular 2 and React
 
-### WORK IN PROGRESS!!
+Provides fast, reliable and extensible starter for the development of [Angular 2.0](https://angularjs.org/) and [React](https://github.com/facebook/react) projects.
 
-In the near future this will be an awsome TypeScript boilerplate!
+## Features
+
+* [Typescript](https://www.typescriptlang.org/) for building scalable applications
+* [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
+* [Karma](http://karma-runner.github.io/0.13/index.html) as the test runner
+* [Sinon.JS](http://sinonjs.org/) with examples for test doubles
+* [JSX](https://facebook.github.io/jsx/) support
+* Statically typed build system for working with TypeScript.
+* Production and development builds.
+* Sample unit tests with Mocha and [Karma](http://karma-runner.github.io/0.13/index.html) including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).
+* Following the [best practices](https://angular.io/styleguide).
+* Manager of your type definitions using [typings](https://github.com/typings/typings).
+* Has autoprefixer and css-lint support.
+
+## Quick start
+
+The only development dependency of this project is [Node.js](https://nodejs.org/en/). So just make sure you have it installed. Then 
+type few commands known to every Node developer...
+
+```bash
+git clone --depth 1 https://github.com/trixler/trixly.git
+cd trixly
+# install the project's dependencies
+npm install
+
+# dev build
+npm run build:dev
+# prod build
+npm run build:prod
+```
+... and boom! You have it all setup for you!
 
 ## Workflow
 
@@ -32,3 +62,5 @@ In the near future this will be an awsome TypeScript boilerplate!
 * `npm run lint:tests` - lint the unit tests
 * `npm run dependencies:check` - shows a list over dependencies with a higher version number then the current one - if any
 * `npm run dependencies:upgrade` - automatically upgrade all devDependencies & dependencies, and update package.json
+
+
