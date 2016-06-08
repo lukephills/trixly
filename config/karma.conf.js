@@ -1,13 +1,18 @@
-'use strict';
-
 const webpack_karma_config = require('./webpack/webpack.karma.config');
 
 const isCI = process.env.CONTINUOUS_INTEGRATION === 'true';
 const runCoverage = process.env.COVERAGE === 'true' || isCI;
 const devBrowser = process.env.PHANTOM ? 'PhantomJS' : 'Chrome';
 
-const preprocessors = ['webpack', 'sourcemap'];
-const reporters = ['mocha'];
+const preprocessors = ['coverage', 'webpack', 'sourcemap'];
+const reporters = ['mocha', 'coverage'];
+
+/*/if (runCoverage) {
+  reporters.push('coverage');
+  if (isCI) {
+    reporters.push('coveralls');
+  }
+}*/
 
 
 module.exports = function (config) {
@@ -25,7 +30,7 @@ module.exports = function (config) {
          // preprocess matching files before serving them to the browser
          // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './config/bundle.js': ['coverage', 'webpack', 'sourcemap']
+            './config/bundle.js': preprocessors
         },
         webpack: webpack_karma_config,
         coverageReporter: {
@@ -42,7 +47,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['mocha', 'coverage'],
+        reporters: reporters,
         mochaReporter: { output: 'autowatch' },
         // web server port
         port: 9876,

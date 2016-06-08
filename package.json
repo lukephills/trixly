@@ -2,15 +2,24 @@
   "name": "trixly",
   "version": "0.0.6",
   "description": "Universal TypeScript starter kit for the development of Angular 2, React, or any other library",
-  "main": "index.js",
+  "main": "src/index.ts",
+   "directories": {
+    "src": "src/"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "src",
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf coverage/ dist/",
     "clean:dist": "rimraf -- dist/",
     "build": "npm run build:dev",
     "prebuild:dev": "npm run clean:dist",
-    "build:dev": "webpack --config config/webpack/webpack.dev.config.js --progress --profile --colors --display-error-details --display-cached",
-    "build:prod": "webpack --config config/webpack/webpack.prod.config.js  --progress --profile --colors --display-error-details --display-cached --bail",
+    "build:dev": "cross-env NODE_ENV=development webpack --config config/webpack/webpack.dev.config.js --progress --profile --colors --display-error-details --display-cached",
+    "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.prod.config.js  --progress --profile --colors --display-error-details --display-cached --bail",
     "test": "npm run test:browser",
+    "test:coverage": "cross-env COVERAGE=true karma start --single-run",
     "test:browser": "karma start config/karma.conf.js --no-auto-watch --browsers=Chrome",
     "test:phantom": "karma start config/karma.conf.js --single-run --no-auto-watch --browsers=PhantomJS",
     "test:chrome": "karma start config/karma.conf.js --single-run --no-auto-watch --browsers=Chrome",

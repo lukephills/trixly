@@ -1,5 +1,5 @@
 /*!
- * trixly v0.0.5
+ * trixly v0.0.6
  * (c) 2016 KFlash
  * Released under the MIT License.
  */
