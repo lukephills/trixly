@@ -45,11 +45,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var foo_1 = __webpack_require__(1);
-	var F = 123;
+	const foo_1 = __webpack_require__(1);
+	const F = 123;
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = {
-	    F: F,
+	    F,
 	    foo: foo_1.default
 	};
 	
@@ -59,10 +59,10 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	var F = 123;
+	const F = 123;
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = {
-	    F: F
+	    F
 	};
 	
 

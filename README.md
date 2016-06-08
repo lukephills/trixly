@@ -22,6 +22,8 @@ In the near future this will be an awsome TypeScript boilerplate!
 * `npm run watch` - run all unit tests in the node environemnt, and watch files for changes
 * `npm run watch:browser` - run all unit tests for browser and watch files for changes
 * `npm run watch:chrome` - run all unit tests for browser with Chrome and watch files for changes
+* `npm run debug:phantom` - run repeated unit tests in PhantomJS after every file change
+* `npm run debug:chrome` - run repeated unit tests in Chrome after every file change
 * `npm run lint:src` - lint the source
 * `npm run lint:tests` - lint the unit tests
 * `npm run dependencies:check` - shows a list over dependencies with a higher version number then the current one - if any

@@ -65,10 +65,10 @@ module.exports = {
     extensions: ['', '.tsx', '.ts', '.js', '.less', '.css'],
 
     // remove other default values
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules'],
 
     // Make sure root is src
-    root: helpers.root('src'),
+    root: helpers.root('src')
 
   },
 
@@ -179,7 +179,7 @@ module.exports = {
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
     //new webpack.optimize.CommonsChunkPlugin({
-	      name: ['polyfills', 'vendor'].reverse()
+	      //name: ['polyfills', 'vendor'].reverse()
 // }),
 
     /*
