@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/trixly.svg)](https://badge.fury.io/js/trixly)
 [![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)](https://github.com/trixler/trixly/blob/master/LICENSE.md)
 
-> Universal TypeScript starter kit for the development of Angular 2, React, or any other library.
+> Universal TypeScript starter kit for Angular 2 and React
 
 ### WORK IN PROGRESS!!
 
