@@ -1,7 +1,3 @@
-/**
- * @author: @AngularClass
- */
-
 const webpack = require('webpack');
 const helpers = require('./config');
 
@@ -17,7 +13,7 @@ const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Trixly',
   baseUrl: '/'
 };
 
@@ -66,13 +62,13 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['', '.ts', '.js'],
-
-    // Make sure root is src
-    root: helpers.root('src'),
+    extensions: ['', '.tsx', '.ts', '.js', '.less', '.css'],
 
     // remove other default values
     modulesDirectories: ['node_modules']
+
+    // Make sure root is src
+    root: helpers.root('src'),
 
   },
 
@@ -95,7 +91,7 @@ module.exports = {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+        { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
       /*
        * Source map loader support for *.js files
@@ -183,7 +179,7 @@ module.exports = {
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
     //new webpack.optimize.CommonsChunkPlugin({
-	  //    name: ['polyfills', 'vendor'].reverse()
+	      name: ['polyfills', 'vendor'].reverse()
 // }),
 
     /*

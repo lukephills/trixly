@@ -1,7 +1,3 @@
-/**
- * @author: @AngularClass
- */
-
 const helpers = require('./config');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.config.js'); // the settings that are common to prod and dev
@@ -121,7 +117,8 @@ module.exports = webpackMerge(commonConfig, {
    * See: https://github.com/wbuchwalter/tslint-loader
    */
   tslint: {
-    emitErrors: false,
+    // Rules are in tslint.json
+    emitErrors: true, // false = WARNING for webpack, true = ERROR for webpack
     failOnHint: false,
     resourcePath: 'src'
   },

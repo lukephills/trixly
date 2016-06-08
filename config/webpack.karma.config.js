@@ -95,13 +95,8 @@ module.exports = {
 		 * See: https://github.com/s-panferov/awesome-typescript-loader
 		 */
 			{
-				test: /\.ts$/,
-				loader: 'awesome-typescript-loader',
-				query: {
-					compilerOptions: {
-						removeComments: true
-					}
-				},
+				test: /\.ts(x?)$/,
+				loader: 'babel-loader!awesome-typescript-loader',
 				exclude: [/\.e2e\.ts$/]
 			}
 		],
