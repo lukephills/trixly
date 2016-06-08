@@ -8,7 +8,8 @@ describe('Trixly', () => {
 
     it('should run a simple TypeScript test #2', () => {
 
-        const greeter = new Trixly('Hello, world!');
+        // Example that TypeScript can be used in the UT files as well
+        const greeter: any = new Trixly('Hello, world!');
 
         expect(greeter.greeting).to.eql('Hello, world!');
     });

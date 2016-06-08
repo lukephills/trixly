@@ -77,6 +77,7 @@ module.exports = function (config) {
 
 	if (process.env.TRAVIS || process.env.CIRCLECI) {
 		configuration.browsers = ['Chrome_travis_ci'];
+        configuration.reporters = ['mocha', 'coverage', 'coverage'];
 		configuration.singleRun = true;
 	}
 

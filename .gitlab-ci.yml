@@ -1,7 +1,14 @@
-before_script:
-  - npm install
+image: node:latest
 
-test:latest:
-  image: node:latest
+before_script:
+- config/gl-ci/install
+- npm install
+
+cache:
+  paths:
+  - node_modules/
+
+test:
   script:
-  - npm test
+  # Run npm test in virtual display mode
+  - xvfb-run -a npm test
