@@ -16,7 +16,7 @@ try {
 	reportError("Looks like you are missing some npm dependencies. Run: npm install");
 }
 
-// Lint the source files
+// Check environment
 gulp.task('check:environment', function() {
 
 
