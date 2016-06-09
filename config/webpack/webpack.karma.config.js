@@ -19,10 +19,9 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
  */
 module.exports = {
 	/**
-	 * Source map for Karma from the help of karma-sourcemap-loader &  karma-webpack
-	 *
-	 * Do not change, leave as is or it wont work.
-	 * See: https://github.com/webpack/karma-webpack#source-maps
+	 * Devtool
+	 * Reference: http://webpack.github.io/docs/configuration.html#devtool
+	 * Type of sourcemap to use per build type
 	 */
 	devtool: 'inline-source-map',
 
@@ -31,9 +30,7 @@ module.exports = {
 	 *
 	 * See: http://webpack.github.io/docs/configuration.html#output
 	 */
-	output: {
-		pathinfo: true
-	},
+	output: {},
 
 	/**
 	 * Options affecting the resolving of modules.

@@ -16,29 +16,6 @@ const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 module.exports = {
-	entry: glob.sync(ROOT('src')),
-	output: {
-		/**
-		 * The output directory as absolute path (required).
-		 *
-		 * See: http://webpack.github.io/docs/configuration.html#output-path
-		 */
-		path: ROOT('dist'),
-		/**
-		 * Specifies the name of each output file on disk.
-		 *
-		 * See: http://webpack.github.io/docs/configuration.html#output-filename
-		 */
-		filename: '[name].js',
-
-		/**
-		 * The filename of the SourceMaps for the JavaScript files.
-		 * They are inside the output.path directory.
-		 *
-		 * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
-		 */
-		sourceMapFilename: 'trixly-test.map',
-	},
 	/**
 	 * Developer tool to enhance debugging
 	 *
@@ -125,11 +102,9 @@ module.exports = {
 
 		new DefinePlugin({
 			'ENV': JSON.stringify(ENV),
-			'HMR': false,
 			'process.env': {
 				'ENV': JSON.stringify(ENV),
 				'NODE_ENV': JSON.stringify(ENV),
-				'HMR': false
 			}
 		}),
 

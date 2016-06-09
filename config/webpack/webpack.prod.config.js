@@ -85,6 +85,7 @@ module.exports = {
 	},
 
 	module: {
+
 		/*
 		 * An array of applied pre and post loaders.
 		 *
@@ -117,6 +118,7 @@ module.exports = {
 
 		],
 		loaders: [
+
 		/**
 		 * Typescript loader support for .ts  and .tsx files
 		 *
@@ -155,6 +157,7 @@ module.exports = {
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
 			},
+
 			/*
 			 * File loader
 			 *
@@ -239,6 +242,15 @@ module.exports = {
 		new DedupePlugin(),
 
 	/**
+	 * Plugin: NoErrorsPlugin
+	 * Description: Only emit files when there are no errors
+	 * and instead applies a copy of the function at runtime.
+	 *
+	 * See: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
+	 */
+		new webpack.NoErrorsPlugin(),
+
+	/**
 	 * Plugin: ExtractTextPlugin
 	 * Description: Extract text from bundle into a file.
 	 *
@@ -255,11 +267,9 @@ module.exports = {
 	 */
 		new DefinePlugin({
 			'ENV': JSON.stringify(ENV),
-			'HMR': false,
 			'process.env': {
 				'ENV': JSON.stringify(ENV),
-				'NODE_ENV': JSON.stringify(ENV),
-				'HMR': false
+				'NODE_ENV': JSON.stringify(ENV)
 			}
 		}),
 
