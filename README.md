@@ -25,6 +25,7 @@ based on webpack using TypeScript 1.9x together with Babel (async/await and gene
 - [x] ES7 to ES5 transpilation with [Babel](http://babeljs.io/)
 - [x] Test Driven Development (TDD)
 - [x] Async and await
+- [x] Code coverage report with [Istanbul Instrumenter Loader](https://github.com/deepsweet/istanbul-instrumenter-loader)
 - [x] Sourcemap
 - [x] Let you play with `CSS`, `LESS`, `SASS`, `HTML`, and `JSON`
 - [x] Mocha & chai de facto standard
@@ -71,10 +72,42 @@ npm run build:prod
 * `npm run dependencies:check` - shows a list over dependencies with a higher version number then the current one - if any
 * `npm run dependencies:upgrade` - automatically upgrade all devDependencies & dependencies, and update package.json
 
+### Folder structure
+
+```bash
+.
+├── script                      # Babel configuration for React.
+├── vscode                      # VSCode configuration.
+├── dist                        # Built, ready to serve app.
+├── config                      # Root folder for configurations.
+│   ├── test                    # Test configurations.
+│   ├── types                   # Global type definitions, written by us.
+│   ├── webpack                 # Webpack configurations.
+│   ├── circle-ci               # Circle CI configuration.
+│   ├── gl-ci                   # GitLab CI configuration.
+│   ├── banner.js               # Banner configuration for development builds
+│   ├── karma.conf.js           # Karma configuration.
+│   ├── root.js                 # Util file for finding the root.
+│   └── runner.hml              # Mocha browser HTML configuration.
+├── node_modules                # Node Packages.
+├── src                         # Source code.
+│   └── trixly.ts               # Entry point.
+├── typings                     # Type definitions installed with typings.
+├── .gitignore                  # Tells git which files to ignore.
+├── package.json                # Package configuration.
+├── CLA.md                      # Contributor License Agreement.
+├── LICENSE.md                  # License.
+├── README.md                   # Readme.
+├── tsconfig.json               # TypeScript transpiler configuration.
+├── tslint.json                 # TSLint configuration.
+└── typings.json                # Typings package configuration.
+```
+
 ### Browser tests
 
 The browser spec runner - `./config/runner.html` - can be opened in a browser to run your tests. For it to work, you must first run `npm run browser`, and then
 open `port 8080`. This will set up a watch task that will automatically refresh the tests when your scripts, or the tests, change.
+
 
 ### License
 
