@@ -20,7 +20,7 @@ module.exports = function (config) {
 		},
 		webpack: webpackConfig,
 		coverageReporter: {
-			dir: 'coverage/',
+			dir: '../coverage',
 			reporters: [
 				{ type: 'text' },
 				{ type: 'lcov' },

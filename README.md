@@ -10,6 +10,9 @@
 
 Provides fast, reliable and extensible starter for the development of [Angular 2.0](https://angularjs.org/) and [React](https://github.com/facebook/react) projects.
 
+#### Work in progress!
+
+
 ## Features
 
 * Statically typed build system for working with [Typescript](https://www.typescriptlang.org/)
