@@ -111,6 +111,7 @@ module.exports = {
 			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
+				exclude:  [/\.(spec|e2e|async)\.ts$/]
 			},
 
 		/**
@@ -128,6 +129,7 @@ module.exports = {
 		 */
 			{ test: /\.css$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
 
+			{ test: /\.scss$/, loader: 'css!postcss!sass', exclude: [ROOT('src/index.html')] },
 		/**
 		 * Raw loader support for *.html
 		 * Returns file content as string
@@ -136,7 +138,7 @@ module.exports = {
 		 */
 			{ test: /\.html$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
 
-			{ test: /\.less$/, loader:  'css?sourceMap!postcss!less?sourceMap' },
+			{ test: /\.less$/, loader:  'css!postcss!less', exclude: [ROOT('src/index.html')] }
 		],
 		/**
 		 * An array of applied pre and post loaders.

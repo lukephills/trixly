@@ -1,6 +1,6 @@
 {
   "name": "trixly",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "Universal TypeScript starter kit for Angular 2 and React",
   "main": "src/index.ts",
   "directories": {
@@ -125,6 +125,7 @@
     "mocha-webpack": "^0.3.0",
     "sinon": "^1.17.4",
     "chai": "^3.5.0",
+    "chai-as-promised": "^5.1.0",
     "typescript": "^1.9.0-dev.20160608-1.0",
     "typings": "^1.0.4",
     "source-map-loader": "^0.1.5",
@@ -133,6 +134,9 @@
     "ts-node": "^0.8.0",
     "typedoc": "^0.4.1",
     "yargs": "^4.7.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "raw-loader": "^0.5.1",
     "extract-text-webpack-plugin": "~1.0.1",
     "awesome-typescript-loader": "~0.19.1",
     "tslint-loader": "^2.1.4",

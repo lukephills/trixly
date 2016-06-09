@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
  * Webpack Plugins
  */
 
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
@@ -129,7 +130,7 @@ module.exports = {
 			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
-				exclude: /node_modules/
+				exclude:  [/\.(spec|e2e|async)\.ts$/]
 			},
 
 			/*
@@ -140,11 +141,29 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
-			}, {
+			},
+			{
 				test: /\.less$/,
 				loader: ExtractTextPlugin.extract('style', 'css!postcss!less')
 			},
-
+			/*
+			 * SASS loader
+			 *
+			 * See: https://github.com/jtangelder/sass-loader
+			 */
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+			},
+			/*
+			 * File loader
+			 *
+			 * See: https://github.com/webpack/file-loader
+			 */
+			{
+				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
+				loader: 'url-loader?limit=20000'
+			},
 			/*
 			 * Support for CSS (with hot module replacement)
 			 *
@@ -200,6 +219,15 @@ module.exports = {
 	 * See: http://webpack.github.io/docs/configuration.html#plugins
 	 */
 	plugins: [
+
+		/*
+		 * Plugin: ForkCheckerPlugin
+		 * Description: Do type checking in a separate process, so webpack don't need to wait.
+		 *
+		 * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
+		 */
+		new ForkCheckerPlugin(),
+
 	/**
 	 * Plugin: DedupePlugin
 	 * Description: Prevents the inclusion of duplicate code into your bundle
@@ -217,7 +245,7 @@ module.exports = {
 	 https://www.npmjs.com/package/extract-text-webpack-plugin
 	 */
 
-		new ExtractTextPlugin('trixly.css'),
+		new ExtractTextPlugin('trixly.min.css'),
 	/**
 	 * Plugin: DefinePlugin
 	 * Description: Define free variables.
@@ -257,9 +285,31 @@ module.exports = {
 				unused: false,
 				warnings: false
 			}, //prod
-			comments: false //prod
+			comments: false,
+			// You can specify all variables that should not be mangled.
+			// For example if your vendor dependency doesn't use modules
+			// and relies on global variables. Most of angular modules relies on
+			// angular global variable, so we should keep it unchanged
+			except: ['$super', '$', 'exports', 'require', 'angular']
+		}),
+
+	/**
+	 * Plugin: CompressionPlugin
+	 * Description: Prepares compressed versions of assets to serve
+	 * them with Content-Encoding
+	 *
+	 * See: https://github.com/webpack/compression-webpack-plugin
+	 */
+		new CompressionPlugin({
+			regExp: /\.css$|\.html$|\.js$|\.map$/,
+			threshold: 2 * 1024
 		})
 	],
+	/**
+	 * PostCSS
+	 * Reference: https://github.com/postcss/autoprefixer-core
+	 * Add vendor prefixes to your css
+	 */
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 
 	/*

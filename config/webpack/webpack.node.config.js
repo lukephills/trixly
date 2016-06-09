@@ -94,7 +94,7 @@ module.exports = {
 			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
-				exclude: /node_modules/
+				exclude:  [/\.(spec|e2e|async)\.ts$/]
 			},
 
 			/*
@@ -102,29 +102,10 @@ module.exports = {
 			 *
 			 * See: https://github.com/webpack/json-loader
 			 */
-			{
-				test: /\.json$/,
-				loader: 'json-loader'
-			},
-			{
-				test: /\.less$/,
-				loader: 'css?sourceMap!postcss!less?sourceMap'
-			},
-
-			/*
-			 * Support for CSS (with hot module replacement)
-			 *
-			 * See: https://github.com/webpack/json-loader
-			 */
-			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
-			},
-
-			// support for .html as raw text
-			{ test: /\.html$/,  loader: 'raw' },
-
-			// make sinon available for node.js unit tests
+			{ test: /\.json$/, loader: 'json-loader', exclude: [ROOT('src/index.html')] },
+			{ test: /\.less$/, loader:  'css!postcss!less', exclude: [ROOT('src/index.html')] },
+			{ test: /\.css$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
+			{ test: /\.html$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
 			{ test: /sinon\.js$/, loader: 'imports?require=>false' }
 		]
 	},

@@ -129,7 +129,7 @@ module.exports = {
 			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
-				exclude: /node_modules/
+				exclude:  [/\.(spec|e2e|async)\.ts$/]
 			},
 
 			/*
@@ -140,9 +140,23 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
-			}, {
+			},
+			{
 				test: /\.less$/,
 				loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!less?sourceMap')
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass')
+			},
+			/*
+			 * File loader
+			 *
+			 * See: https://github.com/webpack/file-loader
+			 */
+			{
+				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
+				loader: 'url-loader?limit=20000'
 			},
 
 			/*
@@ -191,6 +205,14 @@ module.exports = {
 		}),
 
 		/*
+		 * Plugin: HotModuleReplacementPlugin
+		 * Description: Adds webpack HMR support. It act's like livereload,
+		 * reloading page after webpack rebuilt modules.
+		 * It also updates stylesheets and inline assets without page reloading.
+		 */
+
+		new webpack.HotModuleReplacementPlugin(),
+		/*
 		 * Plugin: OccurenceOrderPlugin
 		 * Description: Varies the distribution of the ids to get the smallest id length
 		 * for often used ids.
@@ -213,12 +235,17 @@ module.exports = {
 	 * Plugin: ExtractTextPlugin
 	 * Description: Extract text from bundle into a file.
 	 *
-	 https://www.npmjs.com/package/extract-text-webpack-plugin
+	 * Reference: https://github.com/webpack/extract-text-webpack-plugin
 	 */
 
 		new ExtractTextPlugin('trixly.css'),
 		new webpack.BannerPlugin(banner(), {raw: true})
 	],
+	/**
+	 * PostCSS
+	 * Reference: https://github.com/postcss/autoprefixer-core
+	 * Add vendor prefixes to your css
+	 */
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/*
 	 * Include polyfills or mocks for various node stuff

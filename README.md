@@ -24,7 +24,7 @@ based on webpack using TypeScript 1.9x together with Babel (async/await and gene
 * ES7 to ES5 transpilation with Babel
 * Test Driven Development (TDD)
 * Async and await
-* Let you play with `CSS`, `LESS`, `HTML`, and `JSON`
+* Let you play with `CSS`, `LESS`, `SASS`, `HTML`, and `JSON`
 * Mocha & chai de facto standard
 
 ## Quick start
