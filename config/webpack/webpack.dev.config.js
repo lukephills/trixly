@@ -105,7 +105,7 @@ module.exports = {
 			 * See: https://github.com/webpack/source-map-loader
 			 */
 			{
-				test: /\.js$/,
+				test: /\.ts(x?)$/,
 				loader: 'source-map-loader',
 				exclude: [
 					// these packages have problems with their sourcemaps
@@ -155,12 +155,7 @@ module.exports = {
 			},
 
 			// support for .html as raw text
-			{ test: /\.html$/,  loader: 'raw' },
-
-			{
-				test: /sinon\.js$/,
-				loader: 'imports?require=>false'
-			}
+			{ test: /\.html$/,  loader: 'raw' }
 		]
 	},
 

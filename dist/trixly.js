@@ -60,7 +60,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	// Works with LESS files
 
 	__webpack_require__(1);
 	Object.defineProperty(exports, "__esModule", { value: true });
