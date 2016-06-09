@@ -8,10 +8,8 @@
 
 > Universal TypeScript starter kit for Angular 2 and React
 
-Provides fast, reliable and extensible starter for the development of [Angular 2.0](https://angularjs.org/) and [React](https://github.com/facebook/react) projects.
-
-#### Work in progress!
-
+Fast, reliable TypeScript development stack for building [Angular 2.0](https://angularjs.org/) and [React](https://github.com/facebook/react) applications
+based on webpack using TypeScript 1.9x together with Babel (async/await and generators in ES5).
 
 ## Features
 
@@ -45,10 +43,10 @@ npm run build:prod
 
 ## Workflow
 
-* `npm run build:dev` - build task that generates both minified and non-minified scripts.
-* `npm run build:dev` - build task that generate a non-minified script.
-* `npm run build:prod` - build task that generate a minified script.
-* `npm run test` - runs the unit tests for browser and the `node.js` environment
+* `npm run build` - build bundle both for development and production
+* `npm run build:dev` -  builds bundle for development
+* `npm run build:prod` - builds bundle for production
+* `npm run test` - runs all tests using Karma & Mocha
 * `npm run test:phantom` - runs the unit tests for browser with PhantomJS
 * `npm run test:chrome` - runs the unit tests for browser with Chrome
 * `npm run test:node` - runs the unit tests in the `node.js` environment
@@ -60,8 +58,9 @@ npm run build:prod
 * `npm run watch:chrome` - run all unit tests for browser with Chrome and watch files for changes
 * `npm run debug:phantom` - run repeated unit tests in PhantomJS after every file change
 * `npm run debug:chrome` - run repeated unit tests in Chrome after every file change
-* `npm run lint:src` - lint the source
-* `npm run lint:tests` - lint the unit tests
+* `npm run lint` - validates all TypeScript files using tslint
+* `npm run lint:src` - validates the source files
+* `npm run lint:tests` - validates the unit tests
 * `npm run dependencies:check` - shows a list over dependencies with a higher version number then the current one - if any
 * `npm run dependencies:upgrade` - automatically upgrade all devDependencies & dependencies, and update package.json
 
