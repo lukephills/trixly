@@ -54,7 +54,7 @@ module.exports = function (config) {
 
 	// *Only* push 'coveralls' to the reporters if Travis, Circle or other CI are running
 	if (isCI) {
-		configuration.reportes.push('coveralls');
+		configuration.reporters.push('coveralls');
 	}
 
 	config.set(configuration);
