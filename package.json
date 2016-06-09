@@ -157,20 +157,13 @@
     "typescript": "^1.9.0-dev.20160608-1.0",
     "typings": "^1.0.4",
     "tslint": "^3.11.0",
-    "ts-node": "^0.8.0",
-    "typedoc": "^0.4.1",
-    "yargs": "^4.7.1",
-    "file-loader": "^0.8.5",
-    "html-loader": "^0.4.3",
-    "raw-loader": "^0.5.1",
-    "extract-text-webpack-plugin": "~1.0.1",
-    "awesome-typescript-loader": "~0.19.1",
     "tslint-loader": "^2.1.4",
-    "istanbul-instrumenter-loader": "^0.2.0",
-    "compression-webpack-plugin": "^0.3.1",
+    "typedoc": "^0.4.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-split-by-path": "0.0.8",
+    "yargs": "^4.7.1"
   },
   "engines": {
     "node": ">= 5.4.1 < 6"
