@@ -4,6 +4,8 @@ const autoprefixer = require('autoprefixer');
 /**
  * Webpack Plugins
  */
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
@@ -140,7 +142,7 @@ module.exports = {
 				loader: 'json-loader'
 			}, {
 				test: /\.less$/,
-				loader: 'css?sourceMap!postcss!less?sourceMap'
+				loader: ExtractTextPlugin.extract('style', 'css!postcss!less')
 			},
 
 			/*
@@ -208,6 +210,14 @@ module.exports = {
 	 */
 		new DedupePlugin(),
 
+	/**
+	 * Plugin: ExtractTextPlugin
+	 * Description: Extract text from bundle into a file.
+	 *
+	 https://www.npmjs.com/package/extract-text-webpack-plugin
+	 */
+
+		new ExtractTextPlugin('trixly.css'),
 	/**
 	 * Plugin: DefinePlugin
 	 * Description: Define free variables.

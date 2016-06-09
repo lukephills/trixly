@@ -8,6 +8,7 @@ const ROOT = require('../root');
  * Webpack Plugins
  */
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
@@ -141,7 +142,7 @@ module.exports = {
 				loader: 'json-loader'
 			}, {
 				test: /\.less$/,
-				loader: 'css!postcss!less'
+				loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!less?sourceMap')
 			},
 
 			/*
@@ -198,7 +199,24 @@ module.exports = {
 		 * See: https://github.com/webpack/docs/wiki/optimization#minimize
 		 */
 		new webpack.optimize.OccurenceOrderPlugin(true),
+
+	/**
+	 * Plugin: DedupePlugin
+	 * Description: Prevents the inclusion of duplicate code into your bundle
+	 * and instead applies a copy of the function at runtime.
+	 *
+	 * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+	 * See: https://github.com/webpack/docs/wiki/optimization#deduplication
+	 */
 		new webpack.optimize.DedupePlugin(),
+	/**
+	 * Plugin: ExtractTextPlugin
+	 * Description: Extract text from bundle into a file.
+	 *
+	 https://www.npmjs.com/package/extract-text-webpack-plugin
+	 */
+
+		new ExtractTextPlugin('trixly.css'),
 		new webpack.BannerPlugin(banner(), {raw: true})
 	],
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],

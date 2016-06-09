@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const glob = require('glob');
 const autoprefixer = require('autoprefixer');
 const ROOT = require('../root');
 
@@ -6,7 +7,6 @@ const ROOT = require('../root');
  * Webpack Plugins
  */
 
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 
@@ -16,7 +16,7 @@ const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 module.exports = {
-	entry: ROOT('src'),
+	entry: glob.sync(ROOT('src')),
 	output: {
 		/**
 		 * The output directory as absolute path (required).
@@ -29,7 +29,7 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-filename
 		 */
-		filename: 'trixly.js',
+		filename: '[name].js',
 
 		/**
 		 * The filename of the SourceMaps for the JavaScript files.
@@ -160,8 +160,8 @@ module.exports = {
 		 * See: https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin
 		 * See: https://github.com/webpack/docs/wiki/optimization#minimize
 		 */
-		new webpack.optimize.OccurenceOrderPlugin(true),
-		new webpack.optimize.DedupePlugin()
+		new webpack.optimize.DedupePlugin(),
+		new webpack.IgnorePlugin(/^(fs|path)$/)
 	],
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/*
