@@ -72,7 +72,7 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.tsx', '.ts', '.js', '.less', '.json', '.css', '.html'],
+		extensions: ['', '.ts', '.tsx', '.js'],
 
 		// remove other default values
 		modulesDirectories: ['node_modules'],

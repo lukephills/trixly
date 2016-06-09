@@ -1,13 +1,11 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-
-const banner = require('../banner');
 const ROOT = require('../root');
 
 /**
  * Webpack Plugins
  */
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
@@ -18,39 +16,14 @@ const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 module.exports = {
-
 	entry: ROOT('src'),
-	cache: true,
-	/**
-	 * Switch loaders to debug mode.
-	 *
-	 * See: http://webpack.github.io/docs/configuration.html#debug
-	 */
-	debug: true,
-
-	/**
-	 * Developer tool to enhance debugging
-	 *
-	 * See: http://webpack.github.io/docs/configuration.html#devtool
-	 * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
-	 */
-	devtool: 'cheap-module-source-map',
-
-	/**
-	 * Options affecting the output of the compilation.
-	 *
-	 * See: http://webpack.github.io/docs/configuration.html#output
-	 */
 	output: {
-		library: 'Trixly',
-
 		/**
 		 * The output directory as absolute path (required).
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-path
 		 */
 		path: ROOT('dist'),
-
 		/**
 		 * Specifies the name of each output file on disk.
 		 *
@@ -64,11 +37,19 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
 		 */
-		sourceMapFilename: 'trixly.map',
-		libraryTarget: 'umd'
+		sourceMapFilename: 'trixly-test.map',
 	},
-
+	/**
+	 * Developer tool to enhance debugging
+	 *
+	 * See: http://webpack.github.io/docs/configuration.html#devtool
+	 * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
+	 */
+	devtool: 'inline-source-map',
+	noInfo: true,
 	resolve: {
+		// Make sure root is src
+		root: ROOT('src'),
 		/*
 		 * An array of extensions that should be used to resolve modules.
 		 *
@@ -78,17 +59,13 @@ module.exports = {
 
 		// remove other default values
 		modulesDirectories: ['node_modules'],
-
-		// Make sure root is src
-		root: ROOT('src')
+		alias: {
+			sinon: __dirname + '/node_modules/sinon/pkg/sinon.js'
+			//sinon: __dirname + '/node_modules/sinon/pkg/sinon.js',
+			//sinon: __dirname + '/node_modules/sinon/pkg/sinon.js'
+		}
 	},
-
 	module: {
-		/*
-		 * An array of applied pre and post loaders.
-		 *
-		 * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
-		 */
 		preLoaders: [
 			/*
 			 * Tslint loader support for *.ts files
@@ -115,16 +92,7 @@ module.exports = {
 			}
 		],
 		loaders: [
-		/**
-		 * Typescript loader support for .ts  and .tsx files
-		 *
-		 * Typescript only provides the type checking, but the transpilation from ES6 to ES5 is
-		 * carried over by Babel, which is more webpack-friendly. This also allows to have some
-		 * parts of the application written in js or jsx and have only babel run on them.
-		 *
-		 * See: https://github.com/s-panferov/awesome-typescript-loader
-		 * See: https://github.com/babel/babel-loader
-		 */
+
 			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
@@ -139,9 +107,10 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
-			}, {
+			},
+			{
 				test: /\.less$/,
-				loader: 'css!postcss!less'
+				loader: 'css?sourceMap!postcss!less?sourceMap'
 			},
 
 			/*
@@ -160,6 +129,9 @@ module.exports = {
 			{
 				test: /sinon\.js$/,
 				loader: 'imports?require=>false'
+			}, {
+				test: /sinon\.js$/,
+				loader: 'imports?require=>false'
 			}
 		]
 	},
@@ -176,13 +148,6 @@ module.exports = {
 	},
 
 	plugins: [
-		/*
-		 * Plugin: ForkCheckerPlugin
-		 * Description: Do type checking in a separate process, so webpack don't need to wait.
-		 *
-		 * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
-		 */
-		new ForkCheckerPlugin(),
 
 		new DefinePlugin({
 			'ENV': JSON.stringify(ENV),
@@ -203,8 +168,7 @@ module.exports = {
 		 * See: https://github.com/webpack/docs/wiki/optimization#minimize
 		 */
 		new webpack.optimize.OccurenceOrderPlugin(true),
-		new webpack.optimize.DedupePlugin(),
-		new webpack.BannerPlugin(banner(), {raw: true})
+		new webpack.optimize.DedupePlugin()
 	],
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/*

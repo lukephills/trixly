@@ -16,13 +16,13 @@
     "clean:dist": "rimraf -- dist/",
     "build": "npm run build:dev",
     "prebuild:dev": "npm run clean:dist",
-    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --progress --profile --colors --display-error-details --display-cached",
-    "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.prod.config.js  --progress --profile --colors --display-error-details --display-cached --bail",
-    "test": "npm run test:browser",
-    "test:coverage": "cross-env COVERAGE=true karma start --single-run",
+    "build:dev": "cross-env NODE_ENV=development webpack --config ./config/webpack/webpack.config.js --progress --profile --colors --display-error-details --display-cached",
+    "build:prod": "cross-env NODE_ENV=production webpack --config ./config/webpack/config/webpack/webpack.prod.config.js  --progress --profile --colors --display-error-details --display-cached --bail",
+    "test": "npm run test:browser && npm run test:node",
     "test:browser": "karma start config/karma.conf.js --no-auto-watch --browsers=Chrome",
     "test:phantom": "karma start config/karma.conf.js --single-run --no-auto-watch --browsers=PhantomJS",
     "test:chrome": "karma start config/karma.conf.js --single-run --no-auto-watch --browsers=Chrome",
+    "test:node": "mocha-webpack --webpack-config ./config/webpack/webpack.node.config.js test/node-tests/**/*.ts --colors",
     "watch": "npm run watch:chrome",
     "watch:phantom": "karma start config/karma.conf.js --auto-watch --no-single-run --browsers=PhantomJS",
     "watch:chrome": "karma start config/karma.conf.js --auto-watch --no-single-run --browsers=Chrome",
@@ -79,6 +79,9 @@
   ],
   "homepage": "https://github.com/trixler/trixly#readme",
   "dependencies": {
+    "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
     "babel-plugin-check-es2015-constants": "^6.5.0",
@@ -122,6 +125,8 @@
     "rimraf": "^2.5.2",
     "codelyzer": "~0.0.22",
     "mocha": "^2.5.3",
+    "mocha-multi": "^0.9.0",
+    "mocha-webpack": "^0.3.0",
     "sinon": "^1.17.4",
     "chai": "^3.5.0",
     "typescript": "^1.9.0-dev.20160608-1.0",
@@ -151,10 +156,5 @@
   },
   "engines": {
     "node": ">= 5.4.1 < 7"
-  },
-  "devDependencies": {
-    "babel-preset-stage-3": "^6.5.0",
-    "buble": "^0.10.6",
-    "buble-loader": "^0.2.1"
   }
 }

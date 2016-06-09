@@ -48,9 +48,10 @@ npm run build:prod
 * `npm run build:dev` - build task that generates both minified and non-minified scripts.
 * `npm run build:dev` - build task that generate a non-minified script.
 * `npm run build:prod` - build task that generate a minified script.
-* `npm run test` - runs the unit tests for browser
+* `npm run test` - runs the unit tests for browser and the `node.js` environment
 * `npm run test:phantom` - runs the unit tests for browser with PhantomJS
 * `npm run test:chrome` - runs the unit tests for browser with Chrome
+* `npm run test:node` - runs the unit tests in the `node.js` environment
 * `npm run clean` - remove the coverage report - and the dist folder
 * `npm run clean:dist` - remove the dist folder
 * `npm run prebuild:dev` - clear the dist folder and generate a non-minified script

@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "body {\n  font: 18px/1.3 Myriad Pro, Arial, Helvetica, sans-serif;\n  color: darkblue;\n}\n", "", {"version":3,"sources":["/./src/C:/xampp4/htdocs/trixly/src/index.less","/./src/index.less"],"names":[],"mappings":"AAAA;EACI,wDAAA;EACA,gBAAA;CCCH","file":"index.less","sourcesContent":["body {\n    font: 18px/1.3 Myriad Pro, Arial, Helvetica, sans-serif;\n    color: darkblue;\n}\n","body {\n  font: 18px/1.3 Myriad Pro, Arial, Helvetica, sans-serif;\n  color: darkblue;\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "body {\n  font: 18px/1.3 Myriad Pro, Arial, Helvetica, sans-serif;\n  color: darkblue;\n}\n", ""]);
 
 	// exports
 

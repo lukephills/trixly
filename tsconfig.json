@@ -7,12 +7,6 @@
   "exclude": [
     "node_modules"
   ],
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "!./node_modules/**/*.ts",
-    "config/typings/browser.d.ts"
-  ],
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }

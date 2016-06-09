@@ -46,7 +46,7 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.tsx', '.ts', '.js', '.less', '.json', '.css', '.html'],
+		extensions: ['', '.ts', '.tsx', '.js'],
 		/**
 		 * Make sure root is src
 		 */
@@ -151,7 +151,7 @@ module.exports = {
 		 * See:  https://github.com/deepsweet/istanbul-instrumenter-loader
 		 */
 			{
-				test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
+				test: /\.(js|ts|tsx)$/, loader: 'istanbul-instrumenter-loader',
 				include: ROOT('src'),
 				exclude: [
 					/\.(e2e|spec)\.ts$/,
