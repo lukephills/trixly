@@ -3,16 +3,22 @@
     "target": "es6",
     "module": "commonjs",
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "noImplicitAny": true,
     "removeComments": true,
     "newLine": "LF",
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noEmitHelpers": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings"
   ],
+  "awesomeTypescriptLoaderOptions": {
+    "resolveGlobs": true,
+    "forkChecker": true
+  },
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }

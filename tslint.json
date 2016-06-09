@@ -19,7 +19,7 @@
     "label-undefined": true,
     "max-line-length": [
       true,
-      100
+      140
     ],
     "member-access": true,
     "member-ordering": [
@@ -84,6 +84,7 @@
     "quotemark": [
       true,
       "single",
+      "jsx-single",
       "avoid-escape"
     ],
     "radix": true,
