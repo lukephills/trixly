@@ -17,12 +17,10 @@ general:
 # https://discuss.circleci.com/t/using-node-js-4-0-on-circleci/26
 dependencies:
    pre:
+     - npm install tsd@next -g
      - npm install -g npm
    override:
       - npm install
-        # add node.js module for TypeScript type definition
-        - npm install tsd@next -g
-
 test:
   override:
     - bash ./config/circle-ci/ci.sh
