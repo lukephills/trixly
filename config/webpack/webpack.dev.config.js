@@ -1,12 +1,13 @@
 const webpack = require('webpack');
-const path = require('path');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const autoprefixer = require('autoprefixer');
+
 const banner = require('../banner');
 const ROOT = require('../root');
 
 /**
  * Webpack Plugins
  */
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
@@ -148,6 +149,9 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
+			}, {
+				test: /\.less$/,
+				loader: 'css!postcss!less'
 			},
 
 			/*
@@ -212,12 +216,6 @@ module.exports = {
 		new webpack.optimize.DedupePlugin(),
 		new webpack.BannerPlugin(banner(), {raw: true})
 	],
-
-	devServer: {
-		historyApiFallback: {index: '/dev-server.html'},
-		inline: true,
-		stats: 'errors-only'
-	},
 	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/*
 	 * Include polyfills or mocks for various node stuff

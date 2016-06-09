@@ -1,4 +1,5 @@
 const ROOT = require('../root');
+const autoprefixer = require('autoprefixer');
 
 /**
  * Webpack Plugins
@@ -143,6 +144,27 @@ module.exports = {
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
+			}, {
+				test: /\.less$/,
+				loader: 'css?sourceMap!postcss!less?sourceMap'
+			},
+
+			/*
+			 * Support for CSS (with hot module replacement)
+			 *
+			 * See: https://github.com/webpack/json-loader
+			 */
+			{
+				test: /\.css$/,
+				loader: 'style-loader!css-loader'
+			},
+
+			// support for .html as raw text
+			{ test: /\.html$/,  loader: 'raw' },
+
+			{
+				test: /sinon\.js$/,
+				loader: 'imports?require=>false'
 			}
 		]
 	},
@@ -234,6 +256,7 @@ module.exports = {
 			comments: false //prod
 		})
 	],
+	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 
 	/*
 	 * Include polyfills or mocks for various node stuff

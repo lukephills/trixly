@@ -1,5 +1,5 @@
-const path = require('path');
 const ROOT = require('../root');
+const autoprefixer = require('autoprefixer');
 
 /**
  * Webpack Plugins
@@ -134,7 +134,9 @@ module.exports = {
 		 *
 		 * See: https://github.com/webpack/raw-loader
 		 */
-			{ test: /\.html$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] }
+			{ test: /\.html$/, loader: 'raw-loader', exclude: [ROOT('src/index.html')] },
+
+			{ test: /\.less$/, loader:  'css?sourceMap!postcss!less?sourceMap' },
 		],
 		/**
 		 * An array of applied pre and post loaders.
@@ -193,6 +195,7 @@ module.exports = {
 		failOnHint: false,
 		resourcePath: 'src'
 	},
+	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/**
 	 * Include polyfills or mocks for various node stuff
 	 * Description: Node configuration

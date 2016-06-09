@@ -23,10 +23,11 @@ Provides fast, reliable and extensible starter for the development of [Angular 2
 * Sample unit tests with Mocha and [Karma](http://karma-runner.github.io/0.13/index.html) including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).
 * Following the [best practices](https://angular.io/styleguide).
 * Manager of your type definitions using [typings](https://github.com/typings/typings).
+* Let you play with `CSS`, `LESS`, `HTML`, and `JSON`
 
 ## Quick start
 
-The only development dependency of this project is [Node.js](https://nodejs.org/en/). So just make sure you have it installed. Then 
+The only development dependency of this project is [Node.js](https://nodejs.org/en/). So just make sure you have it installed. Then
 type few commands known to every Node developer...
 
 ```bash
