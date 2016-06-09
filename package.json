@@ -1,6 +1,6 @@
 {
   "name": "trixly",
-  "version": "0.0.21",
+  "version": "0.1.0",
   "description": "Universal TypeScript starter kit for Angular 2 and React",
   "main": "src/index.ts",
   "directories": {
@@ -78,6 +78,7 @@
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-rewire": "^1.0.0-rc-3",
     "babel-plugin-check-es2015-constants": "^6.5.0",
     "babel-plugin-syntax-trailing-function-commas": "^6.8.0",
     "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
