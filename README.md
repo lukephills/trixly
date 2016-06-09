@@ -60,11 +60,10 @@ npm run build:prod
 * `npm run clean` - remove the coverage report - and the dist folder
 * `npm run clean:dist` - remove the dist folder
 * `npm run prebuild:dev` - clear the dist folder and generate a non-minified script
-* `npm run watch` - run all unit tests in the node environemnt, and watch files for changes
+* `npm run watch` - run all unit tests, and watch files for changes
+* `npm run watch:node` - run all unit tests in the `node.js` environemnt, and watch files for changes
 * `npm run watch:browser` - run all unit tests for browser and watch files for changes
 * `npm run watch:chrome` - run all unit tests for browser with Chrome and watch files for changes
-* `npm run debug:phantom` - run repeated unit tests in PhantomJS after every file change
-* `npm run debug:chrome` - run repeated unit tests in Chrome after every file change
 * `npm run lint` - validates all TypeScript files using tslint
 * `npm run lint:src` - validates the source files
 * `npm run lint:tests` - validates the unit tests
