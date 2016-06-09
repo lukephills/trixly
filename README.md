@@ -21,7 +21,11 @@ based on webpack using TypeScript 1.9x together with Babel (async/await and gene
 * Sample unit tests with Mocha and [Karma](http://karma-runner.github.io/0.13/index.html) including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).
 * Following the [best practices](https://angular.io/styleguide).
 * Manager of your type definitions using [typings](https://github.com/typings/typings).
+* ES7 to ES5 transpilation with Babel
+* Test Driven Development (TDD)
+* Async and await
 * Let you play with `CSS`, `LESS`, `HTML`, and `JSON`
+* Mocha & chai de facto standard
 
 ## Quick start
 
