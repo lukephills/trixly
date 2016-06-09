@@ -162,6 +162,7 @@ module.exports = {
 	 *
 	 * See: https://github.com/wbuchwalter/tslint-loader
 	 */	tslint: {
+		emitErrors: true,
 		failOnHint: false,
 		resourcePath: 'src'
 	},
