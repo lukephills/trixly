@@ -35,7 +35,7 @@
     "lint:src": "tslint src/**/*.ts",
     "tsd:update": "tsd reinstall --overwrite",
     "typings-install": "typings install",
-    "postinstall": "typings install",
+    "postinstall": "tsd reinstall --overwrite --save",
     "postversion": "git push && git push --tags",
     "dependencies:check": "ncu",
     "dependencies:upgrade": "ncu -u"

@@ -2,71 +2,44 @@
   "version": "v4",
   "repo": "borisyankov/DefinitelyTyped",
   "ref": "master",
-  "path": "config/typings",
-  "bundle": "config/typings/tsd.d.ts",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
   "installed": {
+    "mocha/mocha.d.ts": {
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
+    },
     "assertion-error/assertion-error.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "istanbul/istanbul.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "sinon/sinon.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
     },
     "chai/chai.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
     },
-    "typescript/typescript.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+    "sinon/sinon.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
     "node/node.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "orchestrator/orchestrator.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "q/Q.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "gulp/gulp.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "log4js/log4js.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "express/express.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
     "serve-static/serve-static.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
-    "mocha/mocha.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+    "log4js/log4js.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
-    "mime/mime.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "karma/karma.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "webpack/webpack.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "source-map/source-map.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+    "express/express.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
     "bluebird/bluebird.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
+    },
+    "mime/mime.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
+    },
+    "karma/karma.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     },
     "express-serve-static-core/express-serve-static-core.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "uglify-js/uglify-js.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
-    },
-    "vinyl-buffer/vinyl-buffer.d.ts": {
-      "commit": "26a1f8c44f5fe76168df717020bfb93839b63db3"
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     }
   }
 }

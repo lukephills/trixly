@@ -1,7 +1,7 @@
 class Greeter {
     constructor(public greeting: string) { }
-    greet() {
-        return "<h1>" + this.greeting + "</h1>";
+    greet: any (): string {
+        return '<h1>' + this.greeting + '</h1>';
     }
 };
 

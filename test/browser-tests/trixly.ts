@@ -1,4 +1,4 @@
-const Trixly = require('../../src/index').default;
+import Trixly from '../../src/index';
 
 describe('Trixly', () => {
 
