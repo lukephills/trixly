@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const ROOT = require('../root');
 const autoprefixer = require('autoprefixer');
 
