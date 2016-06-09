@@ -20,6 +20,9 @@ dependencies:
      - npm install -g npm
    override:
       - npm install
+        # add node.js module for TypeScript type definition
+        - npm install tsd@next -g
+
 test:
   override:
     - bash ./config/circle-ci/ci.sh
