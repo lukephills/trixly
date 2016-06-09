@@ -79,7 +79,11 @@ module.exports = {
 		modulesDirectories: ['node_modules'],
 
 		// Make sure root is src
-		root: ROOT('src')
+		root: ROOT('src'),
+
+		alias: {
+			sinon: __dirname + '/node_modules/sinon/pkg/sinon.js'
+		}
 	},
 
 	module: {
@@ -155,10 +159,14 @@ module.exports = {
 				test: /\.css$/,
 				loader: 'style-loader!css-loader'
 			},
-			,
 
 			// support for .html as raw text
-			{ test: /\.html$/,  loader: 'raw' }
+			{ test: /\.html$/,  loader: 'raw' },
+
+			{
+				test: /sinon\.js$/,
+				loader: 'imports?require=>false'
+			}
 		]
 	},
 
@@ -205,6 +213,12 @@ module.exports = {
 		new webpack.BannerPlugin(banner(), {raw: true})
 	],
 
+	devServer: {
+		historyApiFallback: {index: '/dev-server.html'},
+		inline: true,
+		stats: 'errors-only'
+	},
+	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
 	/*
 	 * Include polyfills or mocks for various node stuff
 	 * Description: Node configuration

@@ -3,7 +3,7 @@
   "version": "0.0.13",
   "description": "Universal TypeScript starter kit for Angular 2 and React",
   "main": "src/index.ts",
-   "directories": {
+  "directories": {
     "src": "src/"
   },
   "files": [
@@ -30,9 +30,10 @@
     "watch:dev": "npm run build:dev -- --w",
     "watch:dev:hmr": "npm run watch:dev -- --hot",
     "watch:prod": "npm run build:prod -- --w",
-    "lint": "npm run lint:src && npm run lint:tests",
-    "lint:tests": "tslint test/**/*.ts",
-    "lint:src": "tslint src/**/*.ts",
+    "lint": "tslint \"!(node_modules|typings)/**/*.ts?(x)\"",
+    "lint:tests": "tslint \"test/**/*.ts?(x)\"",
+    "lint:src": "tslint \"src/**/*.ts?(x)\"",
+
     "tsd:update": "tsd reinstall --overwrite",
     "typings-install": "typings install",
     "postinstall": "tsd reinstall --overwrite --save",
@@ -71,7 +72,10 @@
     "karma",
     "compile",
     "transpile",
-    "mocha"
+    "mocha",
+    "coverage",
+    "async",
+    "await"
   ],
   "homepage": "https://github.com/trixler/trixly#readme",
   "dependencies": {
@@ -103,15 +107,18 @@
     "karma-coverage": "^1.0.0",
     "karma-coveralls": "^1.1.2",
     "karma-mocha-reporter": "^2.0.3",
+    "karma-source-map-support": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.7.0",
     "karma-mocha": "1.0.1",
     "karma-chai": "0.1.0",
     "karma-sinon": "1.0.5",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
     "semver": "^5.1.0",
     "coveralls": "^2.11.9",
     "phantomjs-prebuilt": "^2.1.7",
-    "remap-istanbul": "^0.6.4",
+    "remap-istanbul": "https://github.com/maryo/remap-istanbul/tarball/master",
     "rimraf": "^2.5.2",
     "codelyzer": "~0.0.22",
     "mocha": "^2.5.3",
@@ -121,6 +128,7 @@
     "typings": "^1.0.4",
     "source-map-loader": "^0.1.5",
     "tslint": "^3.11.0",
+    "tslint-microsoft-contrib": "^2.0.2",
     "ts-node": "^0.8.0",
     "typedoc": "^0.4.1",
     "yargs": "^4.7.1",
@@ -136,12 +144,14 @@
     "css-loader": "^0.23.1",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1",
-     "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack-split-by-path": "0.0.8"
   },
   "engines": {
     "node": ">= 5.4.1 < 7"
   },
   "devDependencies": {
+    "babel-preset-stage-3": "^6.5.0",
     "buble": "^0.10.6",
     "buble-loader": "^0.2.1"
   }

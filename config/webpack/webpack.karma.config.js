@@ -109,15 +109,8 @@ module.exports = {
 		 * See: https://github.com/babel/babel-loader
 		 */
 			{
-				test: /\.js$/,
-				loader: 'babel-loader!awesome-typescript-loader',
-				exclude: /node_modules/
-			},
-
-			{
 				test: /\.ts(x?)$/,
 				loader: 'babel-loader!awesome-typescript-loader',
-				exclude: /node_modules/
 			},
 
 		/**
