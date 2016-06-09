@@ -60,9 +60,7 @@ module.exports = {
 		// remove other default values
 		modulesDirectories: ['node_modules'],
 		alias: {
-			sinon: __dirname + '/node_modules/sinon/pkg/sinon.js'
-			//sinon: __dirname + '/node_modules/sinon/pkg/sinon.js',
-			//sinon: __dirname + '/node_modules/sinon/pkg/sinon.js'
+			sinon: ROOT('/node_modules/sinon/pkg/sinon.js')
 		}
 	},
 	module: {
@@ -127,9 +125,6 @@ module.exports = {
 			{ test: /\.html$/,  loader: 'raw' },
 
 			{
-				test: /sinon\.js$/,
-				loader: 'imports?require=>false'
-			}, {
 				test: /sinon\.js$/,
 				loader: 'imports?require=>false'
 			}

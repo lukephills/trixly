@@ -9,6 +9,7 @@ Thumbs.db
 .*.swp
 .*.un~
 *.iml
+.tmp
 
 # Users Environment Variables
 .lock-wscript

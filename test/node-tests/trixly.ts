@@ -1,8 +1,16 @@
 import { expect } from 'chai';
+import {assert} from 'chai';
+import * as sinon from 'sinon';
 
-describe('Trixly', () => {
+describe('Trixly - server tests', () => {
 
-    it('should run a simple TypeScript test in the node.js environment *only*', () => {
+    it('works', () => {
         expect(true).to.be.true;
     });
+
+    it('sinon is available', () => {
+        assert.ok(sinon.spy);
+    });
+
 });
+

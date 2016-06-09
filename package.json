@@ -1,6 +1,6 @@
 {
   "name": "trixly",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Universal TypeScript starter kit for Angular 2 and React",
   "main": "src/index.ts",
   "directories": {
@@ -152,7 +152,8 @@
     "url-loader": "^0.5.7",
     "webpack-split-by-path": "0.0.8",
     "autoprefixer": "^6.3.6",
-    "postcss-loader": "^0.8.2"
+    "postcss-loader": "^0.8.2",
+    "imports-loader": "^0.6.5"
   },
   "engines": {
     "node": ">= 5.4.1 < 7"
