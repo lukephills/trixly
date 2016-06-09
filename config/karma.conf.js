@@ -74,6 +74,9 @@ module.exports = function (config) {
 		// web server port
 		port: 9876,
 		captureTimeout: 60000,
+		browserDisconnectTimeout : 60000,
+		browserDisconnectTolerance : 3,
+		browserNoActivityTimeout : 60000,
 		// enable / disable colors in the output (reporters and logs)
 		colors: true,
 		// level of logging

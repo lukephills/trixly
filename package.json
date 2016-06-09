@@ -30,6 +30,7 @@
     "lint": "tslint \"!(node_modules|typings)/**/*.ts?(x)\"",
     "lint:tests": "tslint \"test/**/*.ts?(x)\"",
     "lint:src": "tslint \"src/**/*.ts?(x)\"",
+    "browser": "webpack-dev-server --quiet --config ./config/webpack/webpack.browser.config.js",
     "postversion": "git push && git push --tags",
     "dependencies:check": "ncu",
     "dependencies:upgrade": "ncu -u"

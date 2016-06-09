@@ -1,5 +1,5 @@
 /*!
- * trixly v0.0.20
+ * trixly v0.1.0
  * (c) 2016 KFlash
  * Released under the MIT License.
  */
@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f638f5ca01044b97864b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6cfe055fb5f0ed1c17fe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -596,19 +596,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 
-	__webpack_require__(1);
 	Object.defineProperty(exports, "__esModule", { value: true });
 		exports.default = {};
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ])

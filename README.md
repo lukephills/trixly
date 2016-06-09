@@ -67,13 +67,14 @@ npm run build:prod
 * `npm run lint` - validates all TypeScript files using tslint
 * `npm run lint:src` - validates the source files
 * `npm run lint:tests` - validates the unit tests
+* `npm run browser` - runs browser unit tests in the browser.
 * `npm run dependencies:check` - shows a list over dependencies with a higher version number then the current one - if any
 * `npm run dependencies:upgrade` - automatically upgrade all devDependencies & dependencies, and update package.json
 
-### Why use TypeScript along with Babel?
+### Browser tests
 
-First of all TypeScript and Babel were created for different purposes. Babel transpiles your ES6+ code to ES5 while TypeScript mostly adds
-strict typing and other syntactic sugar. For instance,
+The browser spec runner - `./config.runner.html` - can be opened in a browser to run your tests. For it to work, you must first run `npm run browser`, and then
+open `port 8080`. This will set up a watch task that will automatically refresh the tests when your scripts, or the tests, change.
 
 ### License
 

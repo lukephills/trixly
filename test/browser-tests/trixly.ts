@@ -1,4 +1,4 @@
-import Trixly from '../../src/index';
+import Trixly from '../../src/index.ts';
 import { expect } from 'chai';
 
 describe('Trixly', () => {
@@ -8,6 +8,6 @@ describe('Trixly', () => {
     });
 
     it('should be an object', () => {
-        expect(Trixly).to.be.a.object;
+        expect(Trixly).to.eql({});
     });
 });
