@@ -1,7 +1,6 @@
 {
   "name": "trixly",
-  "version": "0.0.10",
-  "description": "Universal TypeScript starter kit for Angular 2 and React ",
+  "description": "Universal TypeScript starter kit for Angular 2 and React",
   "main": "src/index.ts",
    "directories": {
     "src": "src/"

@@ -61,7 +61,7 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
 		 */
-		sourceMapFilename: '[name].map',
+		sourceMapFilename: 'trixly.min.map',
 		libraryTarget: 'umd'
 	},
 
@@ -149,7 +149,7 @@ module.exports = {
 	 */
 	tslint: {
 		emitErrors: true,
-		failOnHint: false,
+		failOnHint: true,
 		resourcePath: 'src'
 	},
 

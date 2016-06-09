@@ -1,5 +1,5 @@
 /*!
- * trixly v0.0.8
+ * trixly v0.0.13
  * (c) 2016 KFlash
  * Released under the MIT License.
  */
@@ -61,7 +61,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	"use strict";
 
-	var F = 123;
 	Object.defineProperty(exports, "__esModule", { value: true });
 		exports.default = {};
 
@@ -69,4 +68,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=main.map
+//# sourceMappingURL=trixly.map
