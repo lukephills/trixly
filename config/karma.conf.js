@@ -8,7 +8,7 @@ module.exports = function (config) {
 		basePath: '..',
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['mocha', 'chai'],
+		frameworks: ['mocha', 'chai', 'sinon'],
 		// list of files / patterns to load in the browser
 		files: [ { pattern: './config/bundle.js', watched: false } ],
 		// list of files to exclude
@@ -52,7 +52,7 @@ module.exports = function (config) {
 		singleRun: true
 	};
 
-	// *Only* push 'coveralls' to the reporters if Travis, Circle or other CI are running
+	// Push *only* 'coveralls' to the reporters array if Travis, Circle or other continuous integration are running
 	if (isCI) {
 		configuration.reporters.push('coveralls');
 	}

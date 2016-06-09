@@ -12,18 +12,14 @@ Provides fast, reliable and extensible starter for the development of [Angular 2
 
 ## Features
 
-* [Typescript](https://www.typescriptlang.org/) for building scalable applications
-* [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
-* [Karma](http://karma-runner.github.io/0.13/index.html) as the test runner
-* Setup to work with [VSCode](https://code.visualstudio.com/)
-* Uses [Sinon.JS](http://sinonjs.org/) for test doubles
-* [JSX](https://facebook.github.io/jsx/) support
-* Statically typed build system for working with TypeScript.
+* Statically typed build system for working with [Typescript](https://www.typescriptlang.org/)
+* Maintain a consistent code style with [TSLint](https://palantir.github.io/tslint/)
 * Production and development builds.
+* Intelligent code editing with [VSCode](https://code.visualstudio.com/)
+* Run test doubles with [Sinon.JS](http://sinonjs.org/)
 * Sample unit tests with Mocha and [Karma](http://karma-runner.github.io/0.13/index.html) including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).
 * Following the [best practices](https://angular.io/styleguide).
 * Manager of your type definitions using [typings](https://github.com/typings/typings).
-* Has autoprefixer and css-lint support.
 
 ## Quick start
 
