@@ -124,10 +124,8 @@ module.exports = {
 			// support for .html as raw text
 			{ test: /\.html$/,  loader: 'raw' },
 
-			{
-				test: /sinon\.js$/,
-				loader: 'imports?require=>false'
-			}
+			// make sinon available for node.js unit tests
+			{ test: /sinon\.js$/, loader: 'imports?require=>false' }
 		]
 	},
 
