@@ -5,19 +5,7 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "mocha/mocha.d.ts": {
-      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
-    },
-    "assertion-error/assertion-error.d.ts": {
-      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
-    },
-    "sinon/sinon.d.ts": {
-      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
-    },
     "node/node.d.ts": {
-      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
-    },
-    "chai/chai.d.ts": {
       "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     }
   }

@@ -15,7 +15,8 @@ Provides fast, reliable and extensible starter for the development of [Angular 2
 * [Typescript](https://www.typescriptlang.org/) for building scalable applications
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
 * [Karma](http://karma-runner.github.io/0.13/index.html) as the test runner
-* [Sinon.JS](http://sinonjs.org/) with examples for test doubles
+* Setup to work with [VSCode](https://code.visualstudio.com/)
+* Uses [Sinon.JS](http://sinonjs.org/) for test doubles
 * [JSX](https://facebook.github.io/jsx/) support
 * Statically typed build system for working with TypeScript.
 * Production and development builds.
