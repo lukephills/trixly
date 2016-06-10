@@ -12,9 +12,9 @@ node_js:
   - '5'
   - 'stable'
 
-cache:
-  directories:
-   - node_modules
+#cache:
+ # directories:
+  # - node_modules
 
 branches:
   except:
