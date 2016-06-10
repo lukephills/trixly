@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const ROOT = require('../root');
-const autoprefixer = require('autoprefixer');
-
+const postcssNext = require('postcss-cssnext');
+const postcssAssets = require('postcss-assets');
 /**
  * Webpack Plugins
  */
@@ -321,7 +321,7 @@ module.exports = {
 	 * Reference: https://github.com/postcss/autoprefixer-core
 	 * Add vendor prefixes to your css
 	 */
-	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
+	postcss: () => [postcssNext(), postcssAssets({ relative: true })],
 
 	/*
 	 * Include polyfills or mocks for various node stuff

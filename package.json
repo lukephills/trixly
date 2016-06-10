@@ -81,11 +81,11 @@
   ],
   "homepage": "https://github.com/trixler/trixly#readme",
   "dependencies": {
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "es6-promise": "^3.1.2"
   },
   "devDependencies": {
     "awesome-typescript-loader": "~1.0.0",
-    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
@@ -146,6 +146,8 @@
     "mocha-webpack": "^0.3.0",
     "npm-check-updates": "^2.6.7",
     "postcss-loader": "^0.9.1",
+    "postcss-cssnext": "^2.6.0",
+    "postcss-assets": "^4.1.0",
     "phantomjs-prebuilt": "^2.1.7",
     "remap-istanbul": "https://github.com/maryo/remap-istanbul/tarball/master",
     "rimraf": "^2.5.2",

@@ -1,5 +1,6 @@
 const ROOT = require('../root');
-const autoprefixer = require('autoprefixer');
+const postcssAssets = require('postcss-assets');
+const postcssNext = require('postcss-cssnext');
 
 /**
  * Webpack Plugins
@@ -43,7 +44,7 @@ module.exports = {
 		 *
 		 * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
 		 */
-		extensions: ['', '.ts', '.tsx', '.js'],
+		extensions: ['', '.json', '.js', '.ts', '.tsx', '.jsx'],
 		/**
 		 * Make sure root is src
 		 */
@@ -194,7 +195,7 @@ module.exports = {
 		failOnHint: false,
 		resourcePath: 'src'
 	},
-	postcss: () => [autoprefixer({browsers: 'last 2 versions'})],
+	postcss: () => [postcssNext(), postcssAssets({ relative: true })],
 	/**
 	 * Include polyfills or mocks for various node stuff
 	 * Description: Node configuration
