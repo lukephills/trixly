@@ -84,7 +84,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "~0.19.1",
+    "awesome-typescript-loader": "~1.0.0",
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
