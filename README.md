@@ -12,6 +12,7 @@ based on webpack using TypeScript 1.9x together with Babel (async/await and gene
 
 ## Features
 
+- [x] Uses TypeScript 2.0 Pre
 - [x] Statically typed build system for working with [Typescript](https://www.typescriptlang.org/)
 - [x] Maintain a consistent code style with [TSLint](https://palantir.github.io/tslint/)
 - [x] Production and development builds.
