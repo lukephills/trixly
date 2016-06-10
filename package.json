@@ -157,7 +157,7 @@
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
     "typescript": "next",
-    "typings": "^1.0.4",
+    "typings": "^1.0.5",
     "tslint": "next",
     "tslint-loader": "^2.1.4",
     "typedoc": "^0.4.1",
