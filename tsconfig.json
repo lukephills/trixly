@@ -1,18 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "sourceMap": true,
-    "jsx": "preserve",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "newLine": "LF",
-    "moduleResolution": "node",
+    "allowUnreachableCode": false,
     "experimentalDecorators": true,
-    "noEmitHelpers": true
+    "pretty": true,
+    "module": "commonjs",
+    "jsx": "preserve",
+    "removeComments": true,
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "noEmitHelpers": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "es6"
+
   },
   "exclude": [
     "node_modules",
+    "dist",
     "typings"
   ],
   "awesomeTypescriptLoaderOptions": {
