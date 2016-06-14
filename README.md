@@ -10,6 +10,8 @@
 Fast, reliable TypeScript development stack for building [Angular 2.0](https://angularjs.org/) and [React](https://github.com/facebook/react) applications
 based on webpack using TypeScript 1.9x together with Babel (async/await and generators in ES5).
 
+####**Note!** If you only need a super fast TypeScript 2.0 workflow. Take a look at [Sikky](https://github.com/Kflash/sikky). It's another repo I'm maintaining. Supporting all new TypeScript features.
+
 ## Features
 
 - [x] Uses TypeScript 2.0 Pre
