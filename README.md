@@ -1,5 +1,10 @@
 ## Trixly
 
+
+## Project refactored and moved to [Sikky](https://github.com/Kflash/sikky)
+
+
+
 [![Build Status](https://travis-ci.org/trixler/trixly.svg?branch=master)](https://travis-ci.org/trixler/trixly)
 [![Coverage Status](https://coveralls.io/repos/github/trixler/trixly/badge.svg?branch=master)](https://coveralls.io/github/trixler/trixly?branch=master)
 [![npm version](https://badge.fury.io/js/trixly.svg)](https://badge.fury.io/js/trixly)
